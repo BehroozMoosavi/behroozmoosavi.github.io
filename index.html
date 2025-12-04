@@ -44,6 +44,8 @@
       text-decoration: underline;
     }
 
+    /* Top navigation */
+
     header {
       position: sticky;
       top: 0;
@@ -118,6 +120,8 @@
       transform: translateY(-1px);
     }
 
+    /* Page layout */
+
     main {
       max-width: 980px;
       margin: 0 auto;
@@ -127,9 +131,9 @@
     .section {
       margin-top: 2.5rem;
       padding: 1.75rem 1.6rem 1.9rem;
-      border-radius: 18px;
+      border-radius: var(--radius-lg);
       background: radial-gradient(circle at top left, #1e293b 0, #020617 55%);
-      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.7);
+      box-shadow: var(--shadow-soft);
       border: 1px solid rgba(15, 23, 42, 1);
       position: relative;
       overflow: hidden;
@@ -200,6 +204,8 @@
       font-size: 0.9rem;
     }
 
+    /* Cards & lists */
+
     .card-list {
       display: grid;
       gap: 0.9rem;
@@ -211,7 +217,7 @@
     .card {
       border-radius: 14px;
       background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.35);
+      border: 1px solid var(--border-subtle);
       padding: 0.9rem 1rem;
       transition:
         border-color 0.15s ease,
@@ -249,6 +255,8 @@
       font-size: 0.8rem;
     }
 
+    /* Layout helpers */
+
     .two-col {
       display: grid;
       grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
@@ -275,6 +283,8 @@
     .bullet-list li {
       margin-bottom: 0.3rem;
     }
+
+    /* CV buttons */
 
     .cv-actions {
       display: flex;
@@ -339,6 +349,8 @@
       text-decoration: none;
       transform: translateY(-1px);
     }
+
+    /* Responsive */
 
     @media (max-width: 780px) {
       .two-col {
@@ -459,10 +471,10 @@
 
           <div class="subheading">Honors &amp; Awards</div>
           <ul class="bullet-list">
-            <li>Conference presentation at MEG 2025.</li>
-            <li>Andrew Mellon Fellowship Award, University of Pittsburgh (2023).</li>
+            <li>Conference presentation at MEG 2025 (only second-year Ph.D. student presenter).</li>
+            <li>Andrew Mellon Fellowship Award for first-year Ph.D. students in Economics, Pitt (2023).</li>
             <li>Pitt Momentum Fund, University of Pittsburgh (2022).</li>
-            <li>Distinguished Student (4th of 80), Mathematics Department, Sharif University (2021).</li>
+            <li>Distinguished Student (4th among 80), Mathematics Department, Sharif University (2021).</li>
             <li>48th place among ~650,000 candidates in the Iran National University Entrance Exam (2016).</li>
             <li>Gold Medal, Iranian Mathematical Olympiad (2014); member of the Iranian Elites Foundation.</li>
           </ul>
@@ -618,6 +630,51 @@
           </ul>
         </div>
       </div>
+
+      <!-- Lecture notes section with repository links -->
+      <div class="subheading">Lecture Notes (PDFs hosted on GitHub)</div>
+      <ul class="card-list">
+        <li class="card">
+          <div class="card-title">Topology – Lecture Notes</div>
+          <div class="card-meta">Authored as Teaching Assistant</div>
+          <div class="card-body">
+            Lecture notes covering topological spaces, continuity, compactness, and connectedness.
+          </div>
+          <div class="card-links">
+            Folder (with PDF): 
+            <a href="https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/Topology" target="_blank" rel="noopener">
+              Topology notes on GitHub
+            </a>
+          </div>
+        </li>
+        <li class="card">
+          <div class="card-title">Linear Algebra – Lecture Notes</div>
+          <div class="card-meta">Intro to Linear Algebra for Engineers</div>
+          <div class="card-body">
+            Notes for an introductory course for engineers, including vector spaces, linear maps,
+            eigenvalues, and inner products.
+          </div>
+          <div class="card-links">
+            Folder (with PDF): 
+            <a href="https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/LinearAlgebra1" target="_blank" rel="noopener">
+              Linear Algebra notes on GitHub
+            </a>
+          </div>
+        </li>
+        <li class="card">
+          <div class="card-title">Mathematical &amp; Symbolic Logic – Lecture Notes</div>
+          <div class="card-meta">Advanced Introduction</div>
+          <div class="card-body">
+            Lecture notes introducing basic mathematical logic and set theory.
+          </div>
+          <div class="card-links">
+            Folder (with PDF): 
+            <a href="https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/Mathematical%20and%20symbolic%20Logic" target="_blank" rel="noopener">
+              Logic &amp; Set Theory notes on GitHub
+            </a>
+          </div>
+        </li>
+      </ul>
 
       <div class="subheading">Technical &amp; Language Skills</div>
       <div class="chip-row">
