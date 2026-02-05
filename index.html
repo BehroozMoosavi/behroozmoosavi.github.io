@@ -147,6 +147,32 @@
       z-index: 1;
     }
 
+    /* --- Modified Header for Bio with Image --- */
+    .bio-layout {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 1.1rem;
+    }
+    
+    .bio-text {
+      flex: 1;
+    }
+
+    .profile-img-container {
+      flex-shrink: 0;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%; /* Circle crop */
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+      background-color: var(--bg-alt);
+    }
+
     .section-header {
       margin-bottom: 1.1rem;
     }
@@ -346,6 +372,22 @@
         flex-direction: column;
         align-items: flex-start;
       }
+      
+      /* Mobile layout for Bio: Image on top, then text */
+      .bio-layout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      /* Move image to top using flex order */
+      .profile-img-container {
+        order: -1;
+        margin-bottom: 1rem;
+      }
+      /* Center chips on mobile */
+      .chip-row {
+        justify-content: center;
+      }
     }
 
     @media (max-width: 480px) {
@@ -390,22 +432,32 @@
 
   <section id="bio" class="section">
     <div class="section-inner">
-      <div class="section-header">
-        <div class="section-kicker">Bio</div>
-        <h1 class="section-title">Ph.D. Student in Economics, University of Pittsburgh</h1>
-        <p class="section-lead">
-          I am a Ph.D. student in Economics at the University of Pittsburgh. My work lies at the
-          intersection of decision theory, econometric theory, and optimization, with a focus on
-          axiomatic foundations of choice, stochastic choice and incomplete preferences, and the
-          econometrics of partially identified and high-dimensional models.
-        </p>
-        <div class="chip-row">
-          <div class="chip">Pittsburgh, PA, USA</div>
-          <div class="chip">behroozmoosavi@pitt.edu</div>
-          <div class="chip">+1 (412) 459-6774</div>
+      
+      <div class="bio-layout">
+        <div class="bio-text">
+          <div class="section-kicker">Bio</div>
+          <h1 class="section-title">Ph.D. Student in Economics, University of Pittsburgh</h1>
+          <p class="section-lead">
+            I am a Ph.D. student in Economics at the University of Pittsburgh. My work lies at the
+            intersection of decision theory, econometric theory, and optimization, with a focus on
+            axiomatic foundations of choice, stochastic choice and incomplete preferences, and the
+            econometrics of partially identified and high-dimensional models.
+          </p>
+          <div class="chip-row">
+            <div class="chip">Pittsburgh, PA, USA</div>
+            <div class="chip">behroozmoosavi@pitt.edu</div>
+            <div class="chip">+1 (412) 459-6774</div>
+          </div>
+        </div>
+
+        <div class="profile-img-container">
+          <img 
+            src="100827158.jpeg" 
+            alt="Behrooz Moosavi" 
+            class="profile-img"
+          />
         </div>
       </div>
-
       <div class="two-col">
         <div>
           <p>
