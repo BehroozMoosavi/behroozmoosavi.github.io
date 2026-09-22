@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Behrooz Moosavi – Academic Homepage</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Behrooz Moosavi Ramezanzadeh</title>
+
+  <meta name="description"
+        content="Behrooz Moosavi Ramezanzadeh — mathematics researcher working in calculus of variations, partial differential equations, relaxation, homogenization, and nonlinear elliptic PDE.">
+
+  <meta name="author" content="Behrooz Moosavi Ramezanzadeh">
+
   <style>
+    /* ============================================================
+       GLOBAL
+       ============================================================ */
+
     :root {
-      --bg: #050816;
-      --bg-alt: #0f172a;
-      --card: #020617;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.12);
-      --text-main: #e5e7eb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.35);
-      --radius-lg: 18px;
-      --shadow-soft: 0 22px 60px rgba(15, 23, 42, 0.7);
+      --navy: #102d4f;
+      --navy-dark: #0a2038;
+      --blue: #1d5c96;
+      --text: #20242a;
+      --muted: #626b75;
+      --light: #f6f8fa;
+      --border: #dfe4e8;
+      --white: #ffffff;
+      --max-width: 1120px;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 78px;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #0f172a 0, #020617 40%, #020617 100%);
-      color: var(--text-main);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      font-size: 16px;
     }
 
     a {
-      color: var(--accent);
+      color: var(--blue);
       text-decoration: none;
     }
 
@@ -42,756 +62,1075 @@
       text-decoration: underline;
     }
 
-    header {
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    /* ============================================================
+       NAVIGATION
+       ============================================================ */
+
+    nav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(18px);
-      background: linear-gradient(
-        to bottom,
-        rgba(15, 23, 42, 0.9),
-        rgba(15, 23, 42, 0.75),
-        transparent
-      );
-      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+      z-index: 1000;
+      background: rgba(10, 32, 56, 0.97);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .nav-inner {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 0.65rem 1rem;
+      min-height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .brand span {
-      color: var(--accent);
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      font-size: 0.9rem;
-    }
-
-    nav a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      color: var(--text-muted);
-      text-decoration: none;
-      background: transparent;
-      transition:
-        background 0.15s ease,
-        border-color 0.15s ease,
-        color 0.15s ease,
-        transform 0.12s ease;
-    }
-
-    nav a::before {
-      content: "•";
-      font-size: 0.7rem;
-      color: var(--accent);
-    }
-
-    nav a:hover {
-      background: rgba(15, 23, 42, 0.85);
-      border-color: rgba(51, 65, 85, 0.9);
-      color: var(--text-main);
-      transform: translateY(-1px);
-    }
-
-    main {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 1.75rem 1rem 3.5rem 1rem;
-    }
-
-    .section {
-      margin-top: 2.5rem;
-      padding: 1.75rem 1.6rem 1.9rem;
-      border-radius: var(--radius-lg);
-      background: radial-gradient(circle at top left, #1e293b 0, #020617 55%);
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(15, 23, 42, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .section-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* --- Modified Header for Bio with Image --- */
-    .bio-layout {
-      display: flex;
       gap: 2rem;
-      align-items: flex-start;
-      margin-bottom: 1.1rem;
-    }
-    
-    .bio-text {
-      flex: 1;
     }
 
-    .profile-img-container {
-      flex-shrink: 0;
-    }
-
-    .profile-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%; /* Circle crop */
-      object-fit: cover;
-      border: 2px solid var(--accent);
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
-      background-color: var(--bg-alt);
-    }
-
-    .section-header {
-      margin-bottom: 1.1rem;
-    }
-
-    .section-kicker {
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.68rem;
-      color: var(--accent);
-      margin-bottom: 0.35rem;
-    }
-
-    .section-title {
-      font-size: 1.6rem;
+    .nav-name {
+      color: white;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
       font-weight: 600;
-    }
-
-    .section-lead {
-      margin-top: 0.45rem;
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 46rem;
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.9rem;
-    }
-
-    .chip {
-      font-size: 0.78rem;
-      padding: 0.2rem 0.7rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(51, 65, 85, 0.9);
-      color: var(--text-muted);
       white-space: nowrap;
     }
 
-    p {
-      margin-bottom: 0.85rem;
-      font-size: 0.96rem;
+    .nav-name:hover {
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 1.25rem;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.90);
+      font-size: 0.91rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+
+    .hero {
+      background:
+        linear-gradient(
+          135deg,
+          var(--navy-dark) 0%,
+          var(--navy) 60%,
+          #173f68 100%
+        );
+      color: white;
+      padding: 72px 0 68px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 230px;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.45rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.25rem, 5vw, 3.65rem);
+      line-height: 1.12;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      margin: 0.7rem 0 1.15rem;
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .hero-description {
+      max-width: 760px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.08rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.91);
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.8rem;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.62rem 1rem;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      color: white;
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .button:hover {
+      background: white;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .button-primary {
+      background: white;
+      color: var(--navy);
+      border-color: white;
+    }
+
+    .button-primary:hover {
+      background: #eef3f7;
+    }
+
+    .profile-photo {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.85);
+      display: block;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ============================================================
+       GENERAL SECTIONS
+       ============================================================ */
+
+    section.content-section {
+      padding: 62px 0;
+    }
+
+    section.content-section:nth-of-type(even) {
+      background: var(--light);
+    }
+
+    .section-title {
+      margin: 0 0 1.75rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 2px solid var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--navy-dark);
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    .subsection-title {
+      margin: 2rem 0 1rem;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+    }
+
+    .lead {
+      max-width: 900px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.08rem;
+      line-height: 1.8;
     }
 
     .muted {
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      color: var(--muted);
     }
 
-    .card-list {
+    /* ============================================================
+       ABOUT / RESEARCH INTERESTS
+       ============================================================ */
+
+    .interest-grid {
       display: grid;
-      gap: 0.9rem;
-      margin-top: 0.4rem;
-      list-style: none;
-      padding-left: 0;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 2rem;
     }
 
-    .card {
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid var(--border-subtle);
-      padding: 0.9rem 1rem;
-      transition:
-        border-color 0.15s ease,
-        transform 0.12s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
+    .interest-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--navy);
+      padding: 1.35rem 1.45rem;
+      border-radius: 3px;
     }
 
-    .card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 14px 45px rgba(15, 23, 42, 0.9);
-      transform: translateY(-2px);
-      background: rgba(15, 23, 42, 0.98);
+    .interest-card h3 {
+      margin: 0 0 0.55rem;
+      color: var(--navy);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
     }
 
-    .card-title {
-      font-weight: 500;
-      font-size: 0.98rem;
-      margin-bottom: 0.15rem;
+    .interest-card p {
+      margin: 0;
     }
 
-    .card-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.25rem;
+    /* ============================================================
+       CURRENT RESEARCH
+       ============================================================ */
+
+    .research-project {
+      padding: 1.35rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .card-body {
-      font-size: 0.9rem;
-      color: var(--text-main);
+    .research-project:first-of-type {
+      padding-top: 0;
     }
 
-    .card-links {
-      margin-top: 0.4rem;
-      font-size: 0.8rem;
+    .research-project:last-child {
+      border-bottom: none;
     }
 
-    .two-col {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-      gap: 1.4rem;
+    .research-project h3 {
+      margin: 0 0 0.25rem;
+      color: var(--navy-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.22rem;
+    }
+
+    .research-meta {
+      margin-bottom: 0.7rem;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .research-project p {
+      max-width: 940px;
+      margin: 0.45rem 0;
+    }
+
+    /* ============================================================
+       PUBLICATIONS
+       ============================================================ */
+
+    .publication-group {
+      margin-top: 2rem;
+    }
+
+    .publication-list {
+      margin: 0;
+      padding-left: 1.4rem;
+    }
+
+    .publication-list li {
+      padding: 0.15rem 0 1.25rem 0.35rem;
+    }
+
+    .paper-title {
+      font-weight: 650;
+      color: var(--text);
+    }
+
+    .paper-meta {
+      margin-top: 0.2rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .paper-links {
       margin-top: 0.3rem;
+      font-size: 0.91rem;
     }
 
-    .subheading {
-      margin-top: 1.15rem;
-      margin-bottom: 0.45rem;
-      font-weight: 500;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
+    .paper-links a {
+      margin-right: 0.8rem;
+      font-weight: 600;
     }
 
-    .bullet-list {
-      list-style: disc;
-      padding-left: 1.2rem;
-      font-size: 0.92rem;
+    /* ============================================================
+       NOTES
+       ============================================================ */
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
     }
 
-    .bullet-list li {
-      margin-bottom: 0.3rem;
+    .note-card {
+      border: 1px solid var(--border);
+      background: white;
+      padding: 1.2rem 1.3rem;
+      border-radius: 3px;
     }
 
-    .cv-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.65rem;
-      margin-top: 1rem;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.55rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      background: linear-gradient(to right, #0ea5e9, #22c55e);
-      color: #0b1120;
-      font-size: 0.9rem;
-      font-weight: 500;
-      text-decoration: none;
-      box-shadow: 0 18px 40px rgba(8, 47, 73, 0.75);
-      transition:
-        transform 0.12s ease,
-        box-shadow 0.15s ease,
-        filter 0.15s ease;
-    }
-
-    .btn-primary span.icon {
+    .note-card h3 {
+      margin: 0 0 0.3rem;
+      color: var(--navy);
       font-size: 1rem;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.04);
-      text-decoration: none;
-      box-shadow: 0 22px 55px rgba(8, 47, 73, 0.9);
+    .note-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      background: rgba(15, 23, 42, 0.7);
-      transition:
-        background 0.15s ease,
-        border-color 0.15s ease,
-        color 0.15s ease,
-        transform 0.12s ease;
+    /* ============================================================
+       TEACHING
+       ============================================================ */
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 175px 1fr;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .btn-ghost:hover {
-      background: rgba(15, 23, 42, 0.95);
-      border-color: var(--accent);
-      color: var(--text-main);
-      text-decoration: none;
-      transform: translateY(-1px);
+    .timeline-item:last-child {
+      border-bottom: none;
     }
 
-    @media (max-width: 780px) {
-      .two-col {
+    .timeline-date {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .timeline-content h3 {
+      margin: 0 0 0.25rem;
+      color: var(--navy-dark);
+      font-size: 1.03rem;
+    }
+
+    .timeline-content p {
+      margin: 0.2rem 0;
+    }
+
+    /* ============================================================
+       CONTACT
+       ============================================================ */
+
+    .contact-box {
+      background: var(--navy-dark);
+      color: white;
+      padding: 2rem;
+      border-radius: 4px;
+    }
+
+    .contact-box a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .contact-box p {
+      margin: 0.4rem 0;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+
+    footer {
+      background: #071827;
+      color: rgba(255, 255, 255, 0.72);
+      text-align: center;
+      padding: 1.6rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+
+    @media (max-width: 800px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.6rem;
+        padding: 0.8rem 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        gap: 0.75rem 1rem;
+      }
+
+      .hero {
+        padding-top: 50px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .profile-photo {
+        width: 175px;
+        height: 175px;
+        order: -1;
+      }
+
+      .interest-grid,
+      .notes-grid {
         grid-template-columns: 1fr;
       }
-      .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      /* Mobile layout for Bio: Image on top, then text */
-      .bio-layout {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      /* Move image to top using flex order */
-      .profile-img-container {
-        order: -1;
-        margin-bottom: 1rem;
-      }
-      /* Center chips on mobile */
-      .chip-row {
-        justify-content: center;
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
       }
     }
 
-    @media (max-width: 480px) {
-      .section {
-        padding: 1.45rem 1.1rem 1.6rem;
+    @media (max-width: 520px) {
+      body {
+        font-size: 15px;
       }
-      .section-title {
-        font-size: 1.35rem;
+
+      .hero h1 {
+        font-size: 2.2rem;
       }
-      .section-lead {
-        font-size: 0.9rem;
-      }
-      .brand {
-        font-size: 0.86rem;
-      }
-      nav a {
-        font-size: 0.82rem;
-        padding-inline: 0.7rem;
+
+      section.content-section {
+        padding: 45px 0;
       }
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="nav-inner">
-    <div class="brand">
-      Behrooz <span>Moosavi</span>
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+
+  <nav>
+    <div class="container nav-inner">
+
+      <a class="nav-name" href="#home">
+        Behrooz Moosavi Ramezanzadeh
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#notes">Notes</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+        <a href="cv.pdf">CV</a>
+      </div>
+
     </div>
-    <nav>
-      <ul>
-        <li><a href="#bio">Bio</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#teaching">Teaching</a></li>
-        <li><a href="#cv">CV</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </nav>
 
-<main>
 
-  <section id="bio" class="section">
-    <div class="section-inner">
-      
-      <div class="bio-layout">
-        <div class="bio-text">
-          <div class="section-kicker">Bio</div>
-          <h1 class="section-title">Ph.D. Student in Economics, University of Pittsburgh</h1>
-          <p class="section-lead">
-            I am a Ph.D. student in Economics at the University of Pittsburgh. My work lies at the
-            intersection of decision theory, econometric theory, and optimization, with a focus on
-            axiomatic foundations of choice, stochastic choice and incomplete preferences, and the
-            econometrics of partially identified and high-dimensional models.
-          </p>
-          <div class="chip-row">
-            <div class="chip">Pittsburgh, PA, USA</div>
-            <div class="chip">behroozmoosavi@pitt.edu</div>
-            <div class="chip">+1 (412) 459-6774</div>
-          </div>
-        </div>
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
 
-        <div class="profile-img-container">
-          <img 
-            src="100827158.jpeg" 
-            alt="Behrooz Moosavi" 
-            class="profile-img"
-          />
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+
+      <div>
+        <h1>Behrooz Moosavi Ramezanzadeh</h1>
+
+        <p class="hero-subtitle">
+          Applied Analysis &nbsp;&bull;&nbsp;
+          Calculus of Variations &nbsp;&bull;&nbsp;
+          Partial Differential Equations
+        </p>
+
+        <p class="hero-description">
+          I am a graduate student at the University of Pittsburgh,
+          pursuing an M.S. in Mathematics alongside doctoral studies
+          in Economics. My current mathematical research focuses on
+          calculus of variations and nonlinear partial differential
+          equations, particularly relaxation, PDE-constrained
+          variational problems, viscosity solutions, and stochastic
+          game interpretations of nonlinear elliptic equations.
+        </p>
+
+        <div class="hero-links">
+
+          <a class="button button-primary"
+             href="cv.pdf">
+            Curriculum Vitae
+          </a>
+
+          <a class="button"
+             href="https://scholar.google.com/citations?user=gUWL4fIAAAAJ&hl=en"
+             target="_blank" rel="noopener">
+            Google Scholar
+          </a>
+
+          <a class="button"
+             href="https://github.com/BehroozMoosavi"
+             target="_blank" rel="noopener">
+            GitHub
+          </a>
+
+          <a class="button"
+             href="mailto:behroozmoosavi@pitt.edu">
+            Email
+          </a>
+
         </div>
       </div>
-      <div class="two-col">
-        <div>
+
+      <!--
+        Keep your profile image in the same folder as index.html.
+        Change the filename below if necessary.
+      -->
+      <img
+        src="100827158.jpeg"
+        alt="Behrooz Moosavi Ramezanzadeh"
+        class="profile-photo"
+      >
+
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       ABOUT
+       ============================================================ -->
+
+  <section class="content-section" id="about">
+    <div class="container">
+
+      <h2 class="section-title">About</h2>
+
+      <p class="lead">
+        I am a graduate student at the
+        University of Pittsburgh, where I am pursuing an
+        M.S. in Mathematics and am currently a Ph.D. student in
+        Economics. My M.S. thesis is advised by
+        <a href="https://sites.pitt.edu/~manfredi/"
+           target="_blank" rel="noopener">
+          Juan J. Manfredi
+        </a>
+        and concerns partial differential equations and stochastic
+        tug-of-war games.
+      </p>
+
+      <p class="lead">
+        I am also currently working with
+        <a href="https://www.math.cmu.edu/~fonseca/"
+           target="_blank" rel="noopener">
+          Irene Fonseca
+        </a>
+        at Carnegie Mellon University on problems in the calculus of
+        variations involving relaxation, lower semicontinuity, and
+        variable-coefficient PDE constraints.
+      </p>
+
+      <div class="interest-grid">
+
+        <div class="interest-card">
+          <h3>Calculus of Variations</h3>
           <p>
-            Much of my research is motivated by bringing tools from variational analysis, random set
-            theory, and optimization into applied and theoretical econometrics. I am particularly
-            interested in how these tools can sharpen partial identification, improve variable
-            selection in unstable environments, and inform algorithms for sampling from complex,
-            nonconvex distributions.
+            Relaxation, regularity theory, homogenization,
+            lower semicontinuity, and
+            <em>A</em>-quasiconvexity.
           </p>
+        </div>
+
+        <div class="interest-card">
+          <h3>Partial Differential Equations</h3>
           <p>
-            Before coming to Pitt, I completed a B.Sc. in Mathematical Sciences (Cum Laude) at
-            Sharif University of Technology in Tehran, where I built a strong foundation in real
-            analysis, topology, algebra, and probability. I have also developed lecture notes and
-            course materials on topics such as topology, linear algebra, and mathematical logic.
-          </p>
-          <p class="muted">
-            Outside research, I enjoy teaching and mentoring students, especially in courses that
-            bridge rigorous mathematics and economic applications.
+            Nonlinear elliptic PDE, viscosity solutions,
+            regularity of solutions, and stochastic games.
           </p>
         </div>
 
-        <div>
-          <div class="subheading">Education</div>
-          <ul class="bullet-list">
-            <li>
-              <strong>University of Pittsburgh</strong>,
-              Ph.D. in Economics, Aug 2023 – present<br />
-              <span class="muted">
-                Selected coursework: Mathematics of Finance, Statistical Optimal Transport,
-                Calculus of Variations, Measure and Integration, Advanced Econometric Theory I–II,
-                Microeconomic Theory I–II, Linear Optimization, Bayesian Analysis,
-                Econometric Theory I–II, Statistics and Data Analysis.
-              </span>
-            </li>
-            <li>
-              <strong>Sharif University of Technology</strong>,
-              B.Sc. in Mathematical Sciences, Cum Laude, Aug 2016 – Jan 2022<br />
-              <span class="muted">
-                Selected coursework: Real Analysis I–II, Discrete Mathematics, Dynamical Systems,
-                Linear Algebra, Complex Analysis, Numerical Analysis, Intermediate Microeconomics.
-              </span>
-            </li>
-            <li>
-              <strong>National Organization for Development of Exceptional Talents</strong>,
-              High School Diploma in Mathematics and Physics, Kerman, Iran (2012–2016).
-            </li>
-          </ul>
-
-          <div class="subheading">Honors &amp; Awards</div>
-          <ul class="bullet-list">
-            <li>Conference presentation at MEG 2025 (only second-year Ph.D. student presenter).</li>
-            <li>Andrew Mellon Fellowship Award for first-year Ph.D. students in Economics, Pitt (2023).</li>
-            <li>Pitt Momentum Fund, University of Pittsburgh (2022).</li>
-            <li>Distinguished Student (4th among 80), Mathematics Department, Sharif University (2021).</li>
-            <li>48th place among ~650,000 candidates in the Iran National University Entrance Exam (2016).</li>
-            <li>Gold Medal, Iranian Mathematical Olympiad (2014); member of the Iranian Elites Foundation.</li>
-          </ul>
-        </div>
       </div>
+
     </div>
   </section>
 
-  <section id="research" class="section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-kicker">Research</div>
-        <h2 class="section-title">Decision Theory, Econometric Theory, and Optimization</h2>
-        <p class="section-lead">
-          I study decision-making under uncertainty and econometric models where parameters are
-          partially identified or live in high-dimensional spaces. My work combines tools from
-          stochastic choice theory, random set theory, and modern optimization.
+
+  <!-- ============================================================
+       CURRENT RESEARCH
+       ============================================================ -->
+
+  <section class="content-section" id="research">
+    <div class="container">
+
+      <h2 class="section-title">Current Research</h2>
+
+
+      <!-- Fonseca project -->
+
+      <article class="research-project">
+
+        <h3>
+          Calculus of Variations and Variable-Coefficient
+          PDE Constraints
+        </h3>
+
+        <div class="research-meta">
+          Carnegie Mellon University &nbsp;&bull;&nbsp;
+          Irene Fonseca &nbsp;&bull;&nbsp;
+          2026–present
+        </div>
+
+        <p>
+          I study relaxation, lower semicontinuity, and
+          <em>A</em>-quasiconvexity for variational problems subject
+          to variable-coefficient differential constraints.
         </p>
-      </div>
 
-      <div class="subheading">Research Interests</div>
-      <div class="chip-row">
-        <div class="chip">Decision Theory</div>
-        <div class="chip">Axiomatic Foundations</div>
-        <div class="chip">Choice Data Models</div>
-        <div class="chip">Econometric Theory</div>
-        <div class="chip">Partial Identification</div>
-        <div class="chip">Variable Selection</div>
-        <div class="chip">Optimization Theory</div>
-        <div class="chip">Sampling with Gradient Flows</div>
-      </div>
+        <p>
+          My current work develops a moving-kernel approach to
+          variable-coefficient <em>A</em>-free oscillations, with the
+          goal of obtaining necessity results without
+          pseudodifferential machinery and extending global relaxation
+          methods to the variable-coefficient setting.
+        </p>
 
-      <div class="subheading">Methods &amp; Tools</div>
-      <div class="chip-row">
-        <div class="chip">Stochastic Choice Theory</div>
-        <div class="chip">Random Set Theory</div>
-        <div class="chip">Moment Inequalities</div>
-        <div class="chip">Concentration Inequalities</div>
-        <div class="chip">Variational Analysis</div>
-        <div class="chip">Convex &amp; Nonconvex Optimization</div>
-        <div class="chip">Stochastic Control</div>
-        <div class="chip">Calculus of Variations</div>
-      </div>
+      </article>
 
-      <div class="subheading">Selected Work</div>
-      <ul class="card-list">
-           <li class="card">
-          <div class="card-title">
-            A note on Restricted Selection Set from Random Interval (2025)
-          </div>
-          <div class="card-meta">
-            with Arie Beresteanu · Random Set Theory, Stochastic Geometry.
-          </div>
-          <div class="card-body">
-            Framework for tightening identification region in presence of auxiliary information.
-          </div>
-          <div class="card-links">
-            arXiv: <a href="https://arxiv.org/abs/2512.04539" target="_blank" rel="noopener">2512.04539</a>
-          </div>
-        </li>
-        <li class="card">
-          <div class="card-title">
-            Extended Set Difference: Inverse Operation of Minkowski Summation (2024, 2025)
-          </div>
-          <div class="card-meta">
-            with Arie Beresteanu · Set-valued operations · Partial identification
-          </div>
-          <div class="card-body">
-            Framework for set-valued operations focusing on an inverse operation to Minkowski summation,
-            with applications to partially identified econometric models.
-          </div>
-          <div class="card-links">
-            arXiv: <a href="https://arxiv.org/abs/2412.19779" target="_blank" rel="noopener">2412.19779</a>
-          </div>
-        </li>
-        <li class="card">
-          <div class="card-title">
-            Optimal Control of an Epidemic With Intervention Design (2025, Revise &amp; Resubmit)
-          </div>
-          <div class="card-meta">
-            Optimal control · Epidemic interventions
-          </div>
-          <div class="card-body">
-            Models epidemic control using optimal control theory to design and evaluate intervention
-            strategies under uncertainty.
-          </div>
-          <div class="card-links">
-            arXiv: <a href="https://arxiv.org/abs/2503.22928" target="_blank" rel="noopener">2503.22928</a>
-          </div>
-        </li>
-      </ul>
+
+      <!-- Manfredi project -->
+
+      <article class="research-project">
+
+        <h3>
+          Nonlinear PDE and Stochastic Tug-of-War Games
+        </h3>
+
+        <div class="research-meta">
+          M.S. Thesis Research &nbsp;&bull;&nbsp;
+          University of Pittsburgh &nbsp;&bull;&nbsp;
+          Juan J. Manfredi
+        </div>
+
+        <p>
+          I study nonlinear elliptic equations through stochastic
+          tug-of-war games and asymptotic mean value
+          characterizations, with particular emphasis on the
+          regularized <em>p</em>-Laplacian.
+        </p>
+
+        <p>
+          This work includes projected tug-of-war games and
+          asymptotic mean value formulas associated with nonlinear
+          elliptic equations, interpreted in the viscosity-solution
+          framework.
+        </p>
+
+      </article>
+
+
+      <!-- Broader research -->
+
+      <article class="research-project">
+
+        <h3>Related Research</h3>
+
+        <p>
+          My broader research has included optimal control, random-set
+          geometry, partial identification, differential privacy, and
+          simulation-based statistical inference. This work has led
+          to collaborations with
+          <a href="https://sites.pitt.edu/~arie/"
+             target="_blank" rel="noopener">
+            Arie Beresteanu
+          </a>
+          and
+          <a href="https://jordan-awan.com/"
+             target="_blank" rel="noopener">
+            Jordan Awan
+          </a>.
+        </p>
+
+      </article>
+
     </div>
   </section>
 
-  <section id="teaching" class="section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-kicker">Teaching</div>
-        <h2 class="section-title">Teaching &amp; Mentoring</h2>
-        <p class="section-lead">
-          I have experience teaching economics and mathematics at the undergraduate and graduate
-          levels, as well as volunteer tutoring. I value clarity, structure, and connecting rigorous
-          theory to intuitive examples.
-        </p>
+
+  <!-- ============================================================
+       PUBLICATIONS
+       ============================================================ -->
+
+  <section class="content-section" id="publications">
+    <div class="container">
+
+      <h2 class="section-title">Publications &amp; Preprints</h2>
+
+
+      <!-- Applied mathematics -->
+
+      <div class="publication-group">
+
+        <h3 class="subsection-title">Applied Mathematics</h3>
+
+        <ol class="publication-list">
+
+          <li>
+            <div class="paper-title">
+              A Projected Tug-of-War Game for the Regularized
+              <em>p</em>-Laplacian
+            </div>
+
+            <div class="paper-meta">
+              Behrooz Moosavi Ramezanzadeh, 2026.<br>
+              <em>Journal of Elliptic and Parabolic Equations</em>.
+            </div>
+
+            <div class="paper-links">
+              <a href="https://doi.org/10.1007/s41808-026-00508-x"
+                 target="_blank" rel="noopener">DOI</a>
+
+              <a href="https://arxiv.org/abs/2605.01218"
+                 target="_blank" rel="noopener">arXiv</a>
+            </div>
+          </li>
+
+
+          <li>
+            <div class="paper-title">
+              An Asymptotic Mean Value Characterization for the
+              Regularized <em>p</em>-Laplacian
+            </div>
+
+            <div class="paper-meta">
+              Behrooz Moosavi Ramezanzadeh, 2026.
+              Preprint.
+            </div>
+
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2607.02910"
+                 target="_blank" rel="noopener">arXiv</a>
+            </div>
+          </li>
+
+
+          <li>
+            <div class="paper-title">
+              Optimal Control of an Epidemic with Intervention Design
+            </div>
+
+            <div class="paper-meta">
+              Behrooz Moosavi Ramezanzadeh, 2025.
+              Revise and resubmit.
+            </div>
+
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2503.22928"
+                 target="_blank" rel="noopener">arXiv</a>
+            </div>
+          </li>
+
+
+          <li>
+            <div class="paper-title">
+              Extended Set Difference: An Inverse Operation of
+              Minkowski Summation
+            </div>
+
+            <div class="paper-meta">
+              Arie Beresteanu and Behrooz Moosavi Ramezanzadeh,
+              2024. Revise and resubmit.
+            </div>
+
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2412.19779"
+                 target="_blank" rel="noopener">arXiv</a>
+            </div>
+          </li>
+
+        </ol>
       </div>
 
-      <div class="two-col">
-        <div>
-          <div class="subheading">University of Pittsburgh</div>
-          <ul class="card-list">
-            <li class="card">
-              <div class="card-title">Teaching Assistant</div>
-              <div class="card-meta">Department of Economics &amp; related programs</div>
-              <div class="card-body">
-                <ul class="bullet-list">
-                  <li>Applied Econometrics II (Fall 2025)</li>
-                  <li>Applied Econometrics I (Spring 2025)</li>
-                  <li>Intermediate Microeconomics (Fall 2024)</li>
-                  <li>Probability &amp; Statistics I (Summer 2023)</li>
-                  <li>Graduate Stochastic Processes (Fall 2022)</li>
-                </ul>
-              </div>
-            </li>
-            <li class="card">
-              <div class="card-title">Research Assistant, Industrial Engineering</div>
-              <div class="card-meta">Fall 2022 – Spring 2023</div>
-              <div class="card-body">
-                Assisted with research involving stochastic processes, optimization, and
-                applications in industrial engineering.
-              </div>
-            </li>
-          </ul>
-        </div>
 
-        <div>
-          <div class="subheading">Sharif University of Technology</div>
-          <ul class="card-list">
-            <li class="card">
-              <div class="card-title">Teaching Assistant</div>
-              <div class="card-meta">Mathematics Department</div>
-              <div class="card-body">
-                <ul class="bullet-list">
-                  <li>Elementary Measure Theory (Spring 2022)</li>
-                  <li>Topology I (Spring 2021)</li>
-                  <li>Abstract Algebra I (Spring 2018)</li>
-                </ul>
-              </div>
-            </li>
-            <li class="card">
-              <div class="card-title">Instructor</div>
-              <div class="card-meta">Intro to Linear Algebra for Engineers (Spring 2019)</div>
-              <div class="card-body">
-                Designed and delivered lectures, problem sets, and exams; authored accompanying
-                lecture notes for engineering students.
-              </div>
-            </li>
-            <li class="card">
-              <div class="card-title">Volunteer Tutor</div>
-              <div class="card-meta">Yarigaran Center, 2017–2018</div>
-              <div class="card-body">
-                Tutored child laborers in mathematics, focusing on foundational skills and
-                building confidence in quantitative reasoning.
-              </div>
-            </li>
-          </ul>
-        </div>
+      <!-- Statistics -->
+
+      <div class="publication-group">
+
+        <h3 class="subsection-title">Econometrics &amp; Statistics</h3>
+
+        <ol class="publication-list">
+
+          <li>
+            <div class="paper-title">
+              Partial Identification with Auxiliary Moment Restrictions
+            </div>
+
+            <div class="paper-meta">
+              Arie Beresteanu and Behrooz Moosavi Ramezanzadeh,
+              2026. Preprint.
+            </div>
+
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2607.21807"
+                 target="_blank" rel="noopener">arXiv</a>
+            </div>
+          </li>
+
+
+          <li>
+            <div class="paper-title">
+              Public Good Provision under Locally Private Signals
+            </div>
+
+            <div class="paper-meta">
+              Jordan Awan and Behrooz Moosavi Ramezanzadeh,
+              2026. Preprint.
+            </div>
+
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2606.24013"
+                 target="_blank" rel="noopener">arXiv</a>
+            </div>
+          </li>
+
+
+          <li>
+            <div class="paper-title">
+              Bounds for Restricted Selections of Random Sets
+            </div>
+
+            <div class="paper-meta">
+              Arie Beresteanu and Behrooz Moosavi Ramezanzadeh,
+              2025. Preprint.
+            </div>
+
+            <div class="paper-links">
+              <a href="https://arxiv.org/abs/2512.04539"
+                 target="_blank" rel="noopener">arXiv</a>
+            </div>
+          </li>
+
+        </ol>
       </div>
 
-      <div class="subheading">Lecture Notes (PDFs hosted on GitHub)</div>
-      <ul class="card-list">
-        <li class="card">
-          <div class="card-title">Topology – Lecture Notes</div>
-          <div class="card-meta">Authored as Teaching Assistant</div>
-          <div class="card-body">
-            Lecture notes covering topological spaces, continuity, compactness, and connectedness.
-          </div>
-          <div class="card-links">
-            Folder (with PDF):
-            <a href="https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/Topology" target="_blank" rel="noopener">
-              Topology notes on GitHub
-            </a>
-          </div>
-        </li>
-        <li class="card">
-          <div class="card-title">Linear Algebra – Lecture Notes</div>
-          <div class="card-meta">Intro to Linear Algebra for Engineers</div>
-          <div class="card-body">
-            Notes for an introductory course for engineers, including vector spaces, linear maps,
-            eigenvalues, and inner products.
-          </div>
-          <div class="card-links">
-            Folder (with PDF):
-            <a href="https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/LinearAlgebra1" target="_blank" rel="noopener">
-              Linear Algebra notes on GitHub
-            </a>
-          </div>
-        </li>
-        <li class="card">
-          <div class="card-title">Mathematical &amp; Symbolic Logic – Lecture Notes</div>
-          <div class="card-meta">Advanced Introduction</div>
-          <div class="card-body">
-            Lecture notes introducing basic mathematical logic and set theory.
-          </div>
-          <div class="card-links">
-            Folder (with PDF):
-            <a href="https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/Mathematical%20and%20symbolic%20Logic" target="_blank" rel="noopener">
-              Logic &amp; Set Theory notes on GitHub
-            </a>
-          </div>
-        </li>
-      </ul>
-
-      <div class="subheading">Technical &amp; Language Skills</div>
-      <div class="chip-row">
-        <div class="chip">R</div>
-        <div class="chip">Python</div>
-        <div class="chip">Julia</div>
-        <div class="chip">Stata</div>
-        <div class="chip">MATLAB</div>
-        <div class="chip">LaTeX</div>
-        <div class="chip">English (Full Proficiency)</div>
-        <div class="chip">Persian (Native)</div>
-      </div>
     </div>
   </section>
 
-  <section id="cv" class="section">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="section-kicker">CV</div>
-        <h2 class="section-title">Curriculum Vitae</h2>
-        <p class="section-lead">
-          This website highlights my background, research, and teaching experience. A complete and
-          regularly updated CV is available as a PDF.
-        </p>
-      </div>
+
+  <!-- ============================================================
+       EXPOSITORY NOTES
+       ============================================================ -->
+
+  <section class="content-section" id="notes">
+    <div class="container">
+
+      <h2 class="section-title">Lecture Notes &amp; Expository Writing</h2>
 
       <p>
-        The CV contains additional details on coursework, working papers, work in progress,
-        professional experience, awards, and technical skills.
+        I maintain several sets of expository notes developed from
+        coursework, independent study, and teaching.
       </p>
 
-      <div class="cv-actions">
-        <a
-          class="btn-primary"
-          href="cv.pdf"
-          target="_blank"
-          rel="noopener"
-        >
-          <span class="icon">⬇︎</span>
-          <span>Download full CV (PDF)</span>
+      <div class="notes-grid">
+
+        <!-- Replace # with the actual PDF path for each note. -->
+
+        <a class="note-card" href="#">
+          <h3>Topology</h3>
+          <p>Expository lecture notes, 2021.</p>
         </a>
 
-        <a
-          class="btn-ghost"
-          href="https://github.com/behroozmoosavi"
-          target="_blank"
-          rel="noopener"
-        >
-          <span>GitHub profile</span>
+        <a class="note-card" href="#">
+          <h3>Linear Algebra</h3>
+          <p>Expository lecture notes, 2019.</p>
         </a>
 
-        <a
-          class="btn-ghost"
-          href="https://scholar.google.com/citations?user=gUWL4fIAAAAJ&hl=en"
-          target="_blank"
-          rel="noopener"
-        >
-          <span>Google Scholar</span>
+        <a class="note-card" href="#">
+          <h3>Mathematical Logic and Set Theory</h3>
+          <p>Advanced introductory notes, 2019.</p>
         </a>
+
+        <a class="note-card" href="#">
+          <h3>Causal Inference</h3>
+          <p>Expository notes, 2026.</p>
+        </a>
+
       </div>
 
-      <p class="muted" style="margin-top: 0.9rem;">
-        Make sure that <code>cv.pdf</code> is uploaded to the same GitHub repository as this
-        <code>index.html</code> file. If you rename the PDF, update the link above accordingly.
-      </p>
     </div>
   </section>
 
-</main>
+
+  <!-- ============================================================
+       TEACHING
+       ============================================================ -->
+
+  <section class="content-section" id="teaching">
+    <div class="container">
+
+      <h2 class="section-title">Teaching</h2>
+
+
+      <div class="timeline-item">
+
+        <div class="timeline-date">
+          2022–2026
+        </div>
+
+        <div class="timeline-content">
+
+          <h3>University of Pittsburgh</h3>
+
+          <p>
+            <strong>Teaching Assistant:</strong>
+            Graduate Stochastic Processes;
+            Probability &amp; Statistics I;
+            Intermediate Microeconomics;
+            Applied Econometrics I–II;
+            Introduction to Microeconomic Theory.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="timeline-item">
+
+        <div class="timeline-date">
+          Spring 2019
+        </div>
+
+        <div class="timeline-content">
+
+          <h3>Sharif University of Technology</h3>
+
+          <p>
+            <strong>Instructor:</strong>
+            Introduction to Linear Algebra for Engineers.
+            Sole responsibility for lectures, problem sets,
+            and assessment.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="timeline-item">
+
+        <div class="timeline-date">
+          2018–2022
+        </div>
+
+        <div class="timeline-content">
+
+          <h3>Sharif University of Technology</h3>
+
+          <p>
+            <strong>Teaching Assistant:</strong>
+            Abstract Algebra I, Topology I, and
+            Elementary Measure Theory.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SOFTWARE
+       ============================================================ -->
+
+  <section class="content-section" id="software">
+    <div class="container">
+
+      <h2 class="section-title">Software</h2>
+
+      <article class="research-project">
+
+        <h3>
+          <a href="https://CRAN.R-project.org/package=LangevinFlow"
+             target="_blank" rel="noopener">
+            LangevinFlow
+          </a>
+        </h3>
+
+        <p>
+          An R package with a C++ backend, available through CRAN.
+        </p>
+
+      </article>
+
+      <p>
+        <strong>Scientific computing:</strong>
+        MATLAB, Python, Julia, R, C++, Lean 4, and LaTeX.
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT
+       ============================================================ -->
+
+  <section class="content-section" id="contact">
+    <div class="container">
+
+      <h2 class="section-title">Contact</h2>
+
+      <div class="contact-box">
+
+        <p>
+          <strong>Behrooz Moosavi Ramezanzadeh</strong>
+        </p>
+
+        <p>
+          University of Pittsburgh<br>
+          Pittsburgh, Pennsylvania, USA
+        </p>
+
+        <p>
+          Email:
+          <a href="mailto:behroozmoosavi@pitt.edu">
+            behroozmoosavi@pitt.edu
+          </a>
+        </p>
+
+        <p>
+          <a href="https://scholar.google.com/citations?user=gUWL4fIAAAAJ&hl=en"
+             target="_blank" rel="noopener">
+            Google Scholar
+          </a>
+          &nbsp;&bull;&nbsp;
+
+          <a href="https://github.com/BehroozMoosavi"
+             target="_blank" rel="noopener">
+            GitHub
+          </a>
+          &nbsp;&bull;&nbsp;
+
+          <a href="cv.pdf">
+            Curriculum Vitae
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+
+  <footer>
+    &copy; 2026 Behrooz Moosavi Ramezanzadeh
+  </footer>
 
 </body>
 </html>
