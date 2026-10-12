@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Behrooz Moosavi Ramezanzadeh | Mathematics &amp; Research</title>
+  <meta name="author" content="Behrooz Moosavi Ramezanzadeh">
+  <meta name="description" content="Academic website of Behrooz Moosavi Ramezanzadeh, a graduate student at the University of Pittsburgh. Research in calculus of variations, nonlinear PDE, stochastic games, and related work in econometrics.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Behrooz Moosavi Ramezanzadeh">
+  <meta property="og:description" content="Research papers, current work, teaching, and lecture notes. Calculus of variations and nonlinear partial differential equations.">
+  <!-- Self-contained, static HTML. No scripts, trackers, remote fonts, or build step. -->
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #252a30;
+      --heading: #172c40;
+      --muted: #58636e;
+      --link: #185787;
+      --rule: #dfe4e8;
+      --soft: #f4f6f8;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 24px; }
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font: 17px/1.72 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      -webkit-text-size-adjust: 100%;
+    }
+    .page { width: min(100% - 64px, 980px); margin: 0 auto; }
+    a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+    a:hover { color: #0b3354; }
+    a:focus-visible { outline: 2px solid var(--link); outline-offset: 5px; border-radius: 1px; }
+    .skip-link { position: absolute; top: -100px; left: 16px; padding: 8px 14px; background: white; z-index: 10; }
+    .skip-link:focus { top: 10px; }
+    h1, h2, h3, h4 { color: var(--heading); }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+    h1 { font-size: clamp(30px, 4.6vw, 43px); line-height: 1.2; margin: 5px 0 10px; letter-spacing: -0.8px; }
+    h2 { font-size: 28px; line-height: 1.3; margin: 0; letter-spacing: -0.3px; }
+    h3 { font-size: 18px; line-height: 1.45; margin: 0 0 18px; font-weight: 650; }
+    h4 { font-size: 19px; line-height: 1.48; font-weight: 620; margin: 0 0 6px; }
+    h4 a { color: var(--heading); text-decoration: none; }
+    h4 a:hover { color: var(--link); text-decoration: underline; }
+    p { margin: 0 0 14px; }
+    .site-header { padding-top: 54px; }
+    .affiliation { color: var(--muted); font-size: 14px; margin: 0 0 8px; letter-spacing: 0.2px; }
+    .research-line { font-size: 17px; color: var(--muted); margin: 0 0 27px; }
+    .site-nav { display: flex; flex-wrap: wrap; gap: 9px 28px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 13px 0; font-size: 15px; }
+    .site-nav a { text-decoration: none; font-weight: 560; }
+    .site-nav a:hover { text-decoration: underline; }
+    .about {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 210px;
+      gap: 36px;
+      align-items: start;
+      padding: 29px 0 4px;
+    }
+    .about-copy { min-width: 0; }
+    .profile-photo {
+      display: block;
+      width: 210px;
+      height: 210px;
+      max-width: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      outline: 1px solid var(--rule);
+      background: var(--soft);
+    }
+    .about p { margin-bottom: 13px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 15px; padding-top: 5px; }
+    .section { margin-top: 37px; }
+    .section-heading { border-bottom: 1px solid var(--rule); padding-bottom: 13px; margin-bottom: 26px; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+    .section-heading > a { font-size: 14px; flex-shrink: 0; }
+    .paper-group + .paper-group { margin-top: 36px; }
+    .paper-group > h3 { color: var(--muted); font-size: 14px; letter-spacing: 0.8px; text-transform: uppercase; margin: 0 0 6px; }
+    .paper { display: grid; grid-template-columns: 62px minmax(0,1fr); gap: 22px; padding: 23px 0 25px; border-bottom: 1px solid var(--rule); scroll-margin-top: 24px; }
+    .paper-group .paper:last-child { border-bottom: 0; padding-bottom: 0; }
+    .paper-year { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 3px; }
+    .paper-authors { color: var(--muted); font-size: 14px; margin: 0 0 3px; }
+    .paper-authors a { color: inherit; }
+    .paper-status { font-size: 14px; margin: 0 0 12px; color: var(--muted); }
+    .publication-status { font-weight: 580; }
+    .separator { padding: 0 4px; }
+    .paper-description { font-size: 16px; line-height: 1.75; max-width: 820px; }
+    .paper-description p { margin-bottom: 10px; }
+    .paper-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin: 12px 0 0; font-size: 14px; }
+    .math { white-space: nowrap; }
+    .math sup { line-height: 0; }
+    .project-meta { color: var(--muted); font-size: 14px; margin: -8px 0 17px; }
+    .research-text { max-width: 850px; font-size: 16px; }
+    .research-text h3 { margin-bottom: 13px; }
+    .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; }
+    .two-column p { font-size: 15px; line-height: 1.75; }
+    .teaching-item { margin-bottom: 22px; }
+    .teaching-item h4 { font-size: 16px; margin-bottom: 4px; }
+    .small-meta { font-size: 13px !important; color: var(--muted); margin-bottom: 6px; }
+    .notes-list { margin: 0; padding: 0; list-style: none; }
+    .notes-list li { margin-bottom: 18px; }
+    .notes-list a { font-weight: 560; font-size: 15px; }
+    .notes-list p { color: var(--muted); font-size: 14px; margin: 2px 0 0; }
+    .software p { font-size: 16px; max-width: 830px; }
+    .software-title { font-size: 18px; margin-bottom: 9px; }
+    .site-footer { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; margin-top: 48px; border-top: 1px solid var(--rule); padding: 21px 0 33px; color: var(--muted); font-size: 13px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 700px) {
+      .page { width: calc(100% - 40px); }
+      body { font-size: 16px; }
+      .site-header { padding-top: 30px; }
+      h1 { max-width: 600px; letter-spacing: -0.5px; }
+      h2 { font-size: 26px; }
+      .research-line { font-size: 15px; margin-bottom: 21px; }
+      .site-nav { column-gap: 22px; row-gap: 7px; font-size: 14px; }
+      .about { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-top: 23px; }
+      .profile-photo { width: 165px; height: 165px; order: -1; justify-self: start; }
+      .contact-links { font-size: 14px; gap: 7px 18px; }
+      .section { margin-top: 31px; }
+      .section-heading { gap: 12px; margin-bottom: 22px; }
+      .paper { grid-template-columns: 1fr; gap: 5px; padding: 22px 0; }
+      .paper-year { padding-top: 0; font-size: 13px; }
+      h4 { font-size: 18px; }
+      .paper-description { font-size: 15px; }
+      .paper-status, .paper-authors { font-size: 13px; }
+      .paper-links { font-size: 14px; }
+      .two-column { grid-template-columns: 1fr; gap: 20px; }
+      .section-heading > a { font-size: 13px; }
+      .research-text { font-size: 15px; }
+    }
+    @media print {
+      body { font-size: 10pt; color: black; }
+      .page { width: 100%; }
+      .site-header { padding-top: 0; }
+      .about { grid-template-columns: minmax(0, 1fr) 120px; gap: 20px; }
+      .profile-photo { width: 120px; height: 120px; order: initial; }
+      .site-nav, .skip-link, .site-footer, .section-heading > a { display: none; }
+      h1 { font-size: 25pt; }
+      h2 { font-size: 17pt; }
+      h4 { font-size: 12pt; }
+      .paper-description, .research-text, .software p { font-size: 10pt; }
+      .paper-authors, .paper-status, .paper-links, .paper-year { font-size: 9pt; }
+      .paper { break-inside: avoid; padding: 14px 0; }
+      .section { margin-top: 23px; }
+      .section-heading { margin-bottom: 12px; }
+      .two-column { display: block; }
+      a { color: black; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="page">
+  <header class="site-header" id="about">
+    <p class="affiliation">University of Pittsburgh</p>
+    <h1>Behrooz Moosavi Ramezanzadeh</h1>
+    <p class="research-line">Calculus of variations &middot; Nonlinear partial differential equations</p>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#papers">Papers</a>
+      <a href="#current-research">Current research</a>
+      <a href="#teaching-notes">Teaching &amp; notes</a>
+      <a href="#software">Software</a>
+      <a href="cv.pdf">CV</a>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- ABOUT: update this biography as appointments and research develop. -->
+    <section class="about" aria-labelledby="about-heading">
+      <div class="about-copy">
+        <h2 class="sr-only" id="about-heading">About</h2>
+        <p>I am a graduate student at the University of Pittsburgh, pursuing an M.S. in Mathematics alongside doctoral studies in Economics. My research focuses on the calculus of variations and nonlinear partial differential equations.</p>
+        <p>My mathematics thesis, advised by <a href="https://sites.pitt.edu/~manfredi/">Juan J. Manfredi</a>, studies stochastic tug-of-war games and nonlinear elliptic equations. I also work with <a href="https://www.math.cmu.edu/~fonseca/">Irene Fonseca</a> at Carnegie Mellon University on variational problems under variable-coefficient differential constraints.</p>
+        <p>My related work concerns optimal control, convex and random-set geometry, partial identification, and differential privacy, including collaborations with <a href="https://sites.pitt.edu/~arie/">Arie Beresteanu</a> and <a href="https://jordan-awan.com/">Jordan Awan</a>. I previously studied Mathematical Sciences at Sharif University of Technology.</p>
+        <div class="contact-links" aria-label="Contact and academic profiles">
+          <a href="mailto:behroozmoosavi@pitt.edu">behroozmoosavi@pitt.edu</a>
+          <a href="https://scholar.google.com/citations?user=gUWL4fIAAAAJ&amp;hl=en">Google Scholar</a>
+          <a href="https://github.com/BehroozMoosavi">GitHub</a>
+          <a href="cv.pdf">Curriculum vitae</a>
+        </div>
+      </div>
+      <!-- Add your existing photo to this folder using this exact filename. -->
+      <img class="profile-photo" src="100827158.jpeg"
+           alt="Portrait of Behrooz Moosavi Ramezanzadeh"
+           width="210" height="210" decoding="async">
+    </section>
+
+    <section class="section" id="papers" aria-labelledby="papers-heading">
+      <div class="section-heading">
+        <h2 id="papers-heading">Papers</h2>
+        <a href="publications.bib" download>Download BibTeX</a>
+      </div>
+      <div class="paper-group" id="mathematics" aria-labelledby="mathematics-heading">
+        <h3 id="mathematics-heading">Mathematics</h3>
+      <!-- PAPER: projected-tug-of-war -->
+      <article class="paper" id="projected-tug-of-war" aria-labelledby="title-projected-tug-of-war">
+        <div class="paper-year">2026</div>
+        <div class="paper-body">
+          <h4 id="title-projected-tug-of-war"><a href="https://arxiv.org/abs/2605.01218">A Projected Tug-of-War Game for the Regularized <i>p</i>-Laplacian</a></h4>
+          <p class="paper-authors">Behrooz Moosavi Ramezanzadeh</p>
+          <p class="paper-status"><span class="publication-status">Published</span> <span class="separator" aria-hidden="true">&middot;</span> <cite>Journal of Elliptic and Parabolic Equations</cite></p>
+          <div class="paper-description">
+            <p>I give a stochastic-game interpretation of the regularized <i>p</i>-Laplace equation for <span class="math"><i>p</i> &ge; 2</span>. The starting point is the affine lift <span class="math"><i>w</i>(<i>x</i>, <i>s</i>) = <i>v</i>(<i>x</i>) + <i>s</i></span>, which turns the regularized equation into the ordinary <i>p</i>-Laplace equation in one additional dimension. Projecting the higher-dimensional game back to the original domain produces a dynamic programming principle.</p><p>I prove existence, uniqueness, and Borel measurability for the discrete problem with strip boundary data, identify its solution with the value of the projected game, and prove convergence to the viscosity solution as the step size tends to zero. The proof handles the artificial boundary introduced by the lift using estimates that stay away from the cylinder's caps.</p>
+          </div>
+          <p class="paper-links"><a href="https://arxiv.org/pdf/2605.01218" aria-label="Read A Projected Tug-of-War Game for the Regularized p-Laplacian as a PDF">Paper (PDF)</a> <span aria-hidden="true">&middot;</span> <a href="https://arxiv.org/abs/2605.01218" aria-label="arXiv record for A Projected Tug-of-War Game for the Regularized p-Laplacian">arXiv</a> <span aria-hidden="true">&middot;</span> <a href="https://doi.org/10.1007/s41808-026-00508-x">Published version</a></p>
+        </div>
+      </article>
+      <!-- PAPER: mean-value-characterization -->
+      <article class="paper" id="mean-value-characterization" aria-labelledby="title-mean-value-characterization">
+        <div class="paper-year">2026</div>
+        <div class="paper-body">
+          <h4 id="title-mean-value-characterization"><a href="https://arxiv.org/abs/2607.02910">An Asymptotic Mean Value Characterization for the Regularized <i>p</i>-Laplacian</a></h4>
+          <p class="paper-authors">Behrooz Moosavi Ramezanzadeh</p>
+          <p class="paper-status"><span class="publication-status">Preprint</span></p>
+          <div class="paper-description">
+            <p>This paper asks whether a solution of the regularized <i>p</i>-Laplace equation can be recognized from its values in small neighborhoods. For <span class="math"><i>C</i><sup>2</sup></span> functions, I prove that solving the equation is equivalent to a pointwise asymptotic mean-value identity, combining tilted extrema with a weighted local average.</p><p>The characterization holds throughout <span class="math">1 &lt; <i>p</i> &lt; &infin;</span>. The affine lift has gradient <span class="math">(<i>Dv</i>, 1)</span>, which never vanishes, so the expansion does not require a separate critical-point case. This is a pointwise characterization; the convergence of the associated stochastic game for <span class="math"><i>p</i> &ge; 2</span> is established in the companion paper above.</p>
+          </div>
+          <p class="paper-links"><a href="https://arxiv.org/pdf/2607.02910" aria-label="Read An Asymptotic Mean Value Characterization for the Regularized p-Laplacian as a PDF">Paper (PDF)</a> <span aria-hidden="true">&middot;</span> <a href="https://arxiv.org/abs/2607.02910" aria-label="arXiv record for An Asymptotic Mean Value Characterization for the Regularized p-Laplacian">arXiv</a></p>
+        </div>
+      </article>
+      <!-- PAPER: epidemic-control -->
+      <article class="paper" id="epidemic-control" aria-labelledby="title-epidemic-control">
+        <div class="paper-year">2025</div>
+        <div class="paper-body">
+          <h4 id="title-epidemic-control"><a href="https://arxiv.org/abs/2503.22928">Optimal Control of an Epidemic with Intervention Design</a></h4>
+          <p class="paper-authors">Behrooz Moosavi Ramezanzadeh</p>
+          <p class="paper-status"><span class="publication-status">Preprint</span></p>
+          <div class="paper-description">
+            <p>I study an epidemic-control problem in an SEIR model with a delay between a vaccination decision and its implementation. The problem includes a hard healthcare-capacity constraint and an infinite planning horizon, rather than only a cost for exceeding capacity.</p><p>The analysis uses Moreau&ndash;Yosida regularization to approximate the hard constraint by penalized problems and &Gamma;-convergence to relate finite- and infinite-horizon solutions. Pontryagin optimality conditions characterize intervention strategies, including boundary-maintenance arcs on which infections remain at the capacity limit. Numerical examples examine the costs of intervention delays and the associated shadow prices.</p>
+          </div>
+          <p class="paper-links"><a href="https://arxiv.org/pdf/2503.22928" aria-label="Read Optimal Control of an Epidemic with Intervention Design as a PDF">Paper (PDF)</a> <span aria-hidden="true">&middot;</span> <a href="https://arxiv.org/abs/2503.22928" aria-label="arXiv record for Optimal Control of an Epidemic with Intervention Design">arXiv</a></p>
+        </div>
+      </article>
+      <!-- PAPER: extended-set-difference -->
+      <article class="paper" id="extended-set-difference" aria-labelledby="title-extended-set-difference">
+        <div class="paper-year">2025</div>
+        <div class="paper-body">
+          <h4 id="title-extended-set-difference"><a href="https://arxiv.org/abs/2412.19779">Extended Set Difference: An Inverse Operation of Minkowski Summation</a></h4>
+          <p class="paper-authors">With <a href="https://sites.pitt.edu/~arie/">Arie Beresteanu</a></p>
+          <p class="paper-status"><span class="publication-status">Preprint</span></p>
+          <div class="paper-description">
+            <p>Minkowski addition combines two sets by adding their elements, but it does not always admit an exact inverse. Given compact convex sets <i>A</i> and <i>B</i>, we define an extended set difference by looking for compact convex sets <i>X</i> that minimize the Hausdorff distance between <i>A</i> and <span class="math"><i>B</i> + <i>X</i></span>.</p><p>We prove existence for every pair of nonempty compact convex inputs. The minimizing set need not be unique, so we study the collection of minimizers rather than assuming a single difference. The paper gives bounds on this nonuniqueness, studies stability under transformations and perturbations, and develops a linear-optimization approach to computation.</p>
+          </div>
+          <p class="paper-links"><a href="https://arxiv.org/pdf/2412.19779" aria-label="Read Extended Set Difference: An Inverse Operation of Minkowski Summation as a PDF">Paper (PDF)</a> <span aria-hidden="true">&middot;</span> <a href="https://arxiv.org/abs/2412.19779" aria-label="arXiv record for Extended Set Difference: An Inverse Operation of Minkowski Summation">arXiv</a></p>
+        </div>
+      </article>
+      </div>
+      <div class="paper-group" id="econometrics-statistics" aria-labelledby="statistics-heading">
+        <h3 id="statistics-heading">Econometrics &amp; statistics</h3>
+      <!-- PAPER: auxiliary-moments -->
+      <article class="paper" id="auxiliary-moments" aria-labelledby="title-auxiliary-moments">
+        <div class="paper-year">2026</div>
+        <div class="paper-body">
+          <h4 id="title-auxiliary-moments"><a href="https://arxiv.org/abs/2607.21807">Partial Identification with Auxiliary Moment Restrictions</a></h4>
+          <p class="paper-authors">With <a href="https://sites.pitt.edu/~arie/">Arie Beresteanu</a></p>
+          <p class="paper-status"><span class="publication-status">Preprint</span></p>
+          <div class="paper-description">
+            <p>When an outcome is observed only as an interval, the data may identify a set of regression coefficients rather than a single value. We study how known population aggregates, such as a mean or conditional mean, restrict this set. The additional information constrains admissible completions of the data without changing the reported intervals.</p><p>We characterize the resulting sharp identification regions for the best linear predictor and the different geometric effects of the restrictions. Some reduce the dimension of the region; others narrow it without reducing its dimension. The paper derives directional measures of identifying value and includes an application to interval-valued wages from the Current Population Survey.</p>
+          </div>
+          <p class="paper-links"><a href="https://arxiv.org/pdf/2607.21807" aria-label="Read Partial Identification with Auxiliary Moment Restrictions as a PDF">Paper (PDF)</a> <span aria-hidden="true">&middot;</span> <a href="https://arxiv.org/abs/2607.21807" aria-label="arXiv record for Partial Identification with Auxiliary Moment Restrictions">arXiv</a></p>
+        </div>
+      </article>
+      <!-- PAPER: locally-private-signals -->
+      <article class="paper" id="locally-private-signals" aria-labelledby="title-locally-private-signals">
+        <div class="paper-year">2026</div>
+        <div class="paper-body">
+          <h4 id="title-locally-private-signals"><a href="https://arxiv.org/abs/2606.24013">Public Good Provision under Locally Private Signals</a></h4>
+          <p class="paper-authors">With <a href="https://jordan-awan.com/">Jordan Awan</a></p>
+          <p class="paper-status"><span class="publication-status">Preprint</span></p>
+          <div class="paper-description">
+            <p>We study public-good provision when a planner observes preferences only through a fixed privacy channel that randomizes individual reports. The optimal reduced-form allocation is determined by an aggregate posterior score combining expected valuations and virtual values.</p><p>We distinguish this allocation rule from its implementation through payments based on the observed signals. The required transfers satisfy a Fredholm integral equation: completeness gives uniqueness when a solution exists, while existence requires a separate range condition. We also characterize population-dependent revenue growth and show that comparisons between privacy channels depend on how their privacy levels are calibrated.</p>
+          </div>
+          <p class="paper-links"><a href="https://arxiv.org/pdf/2606.24013" aria-label="Read Public Good Provision under Locally Private Signals as a PDF">Paper (PDF)</a> <span aria-hidden="true">&middot;</span> <a href="https://arxiv.org/abs/2606.24013" aria-label="arXiv record for Public Good Provision under Locally Private Signals">arXiv</a></p>
+        </div>
+      </article>
+      <!-- PAPER: restricted-selections -->
+      <article class="paper" id="restricted-selections" aria-labelledby="title-restricted-selections">
+        <div class="paper-year">2025</div>
+        <div class="paper-body">
+          <h4 id="title-restricted-selections"><a href="https://arxiv.org/abs/2512.04539">Bounds for Restricted Selections of Random Sets</a></h4>
+          <p class="paper-authors">With <a href="https://sites.pitt.edu/~arie/">Arie Beresteanu</a></p>
+          <p class="paper-status"><span class="publication-status">Preprint</span></p>
+          <div class="paper-description">
+            <p>A selection of a random interval chooses a measurable value between its lower and upper endpoints. We ask which means, medians, and event probabilities are attainable when selections must also satisfy aggregate restrictions.</p><p>On a non-atomic probability space, we characterize restricted selection sets and derive sharp bounds using rearrangement and convex-duality arguments, including extremal expectations under median and higher-moment restrictions. For random compact convex sets in higher dimensions, we develop an approximation by unions of random cubes, reducing the resulting selection problems to coordinate-wise interval problems. The higher-dimensional result is an approximation-based reduction, not an unrestricted one-dimensional formula.</p>
+          </div>
+          <p class="paper-links"><a href="https://arxiv.org/pdf/2512.04539" aria-label="Read Bounds for Restricted Selections of Random Sets as a PDF">Paper (PDF)</a> <span aria-hidden="true">&middot;</span> <a href="https://arxiv.org/abs/2512.04539" aria-label="arXiv record for Bounds for Restricted Selections of Random Sets">arXiv</a></p>
+        </div>
+      </article>
+      </div>
+    </section>
+
+    <section class="section" id="current-research" aria-labelledby="current-heading">
+      <div class="section-heading"><h2 id="current-heading">Current research</h2></div>
+      <div class="research-text">
+        <h3>Variational problems under variable-coefficient differential constraints</h3>
+        <p class="project-meta">Manuscript in preparation &middot; Research supervised by Irene Fonseca</p>
+        <p>I study when weak lower semicontinuity can be characterized by <i>A</i>-quasiconvexity for energies whose admissible fields satisfy a variable-coefficient differential constraint. The two directions of the characterization use different rank assumptions.</p>
+        <p>For sufficiency, I use a blow-up argument to freeze the coefficients and apply the constant-coefficient theory of Fonseca and M&uuml;ller. The argument works with Lipschitz coefficients and pointwise constant rank, allowing the rank to vary with the spatial point. For necessity, I adapt the moving-kernel construction of Davoli and Fonseca to produce asymptotically constraint-free oscillations without pseudodifferential operators. This step uses a Lipschitz kernel-projection estimate and requires local constancy of the rank along each lattice direction, a stronger condition than the one used for sufficiency.</p>
+        <p>A separate divergence-form result gives a characterization with bounded coefficients under an invertibility condition. The necessity argument does not resolve points where the rank jumps. I am also investigating a possible extension of the recovery-sequence construction in Davoli and Fonseca's homogenization theorem; the corresponding liminf inequality remains to be checked.</p>
+      </div>
+    </section>
+
+    <section class="section" id="teaching-notes" aria-labelledby="teaching-notes-heading">
+      <div class="section-heading"><h2 id="teaching-notes-heading">Teaching &amp; notes</h2></div>
+      <div class="two-column">
+        <div id="teaching">
+          <h3>Teaching</h3>
+          <div class="teaching-item">
+            <h4>University of Pittsburgh</h4>
+            <p class="small-meta">Teaching assistant &middot; 2022&ndash;2026</p>
+            <p>Graduate Stochastic Processes; Probability &amp; Statistics I; Intermediate Microeconomics; Applied Econometrics I and II; Introduction to Microeconomic Theory.</p>
+          </div>
+          <div class="teaching-item">
+            <h4>Sharif University of Technology</h4>
+            <p class="small-meta">Instructor &middot; Spring 2019</p>
+            <p>Introduction to Linear Algebra for Engineers, with responsibility for lectures, problem sets, and assessment.</p>
+            <p class="small-meta">Teaching assistant &middot; 2020&ndash;2022</p>
+            <p>Abstract Algebra I; Topology I; Elementary Measure Theory.</p>
+          </div>
+        </div>
+        <div id="notes">
+          <h3>Lecture notes &amp; expository writing</h3>
+          <ul class="notes-list">
+            <li><a href="https://github.com/BehroozMoosavi/Lecture-Notes/blob/main/Topology/Topology.pdf">Topology</a><p>2021 &middot; Lecture notes written as a teaching assistant.</p></li>
+            <li><a href="https://github.com/BehroozMoosavi/Lecture-Notes">Linear Algebra</a><p>2019 &middot; Lecture notes written as course instructor.</p></li>
+            <li><a href="https://github.com/BehroozMoosavi/Lecture-Notes">An Advanced Introduction to Mathematical Logic and Set Theory</a><p>2019 &middot; Expository notes on first-order logic and axiomatic set theory.</p></li>
+            <li><a href="https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/Causal_Inference">Causal Inference</a><p>2026 &middot; Graduate-level lecture notes.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section software" id="software" aria-labelledby="software-heading">
+      <div class="section-heading"><h2 id="software-heading">Software</h2></div>
+      <h3 class="software-title"><a href="https://CRAN.R-project.org/package=LangevinFlow">LangevinFlow</a></h3>
+      <p>An R package with a C++ backend, available on CRAN. I also use Python, Julia, MATLAB, R, and C++ for scientific computing, and Lean 4 and LaTeX for mathematical work.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Behrooz Moosavi Ramezanzadeh &middot; Pittsburgh, Pennsylvania</span>
+    <a href="#about">Back to top</a>
+  </footer>
+</div>
+</body>
+</html>
