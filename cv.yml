@@ -1,0 +1,33 @@
+name: Build CV
+
+# Rebuilds cv.pdf whenever cv/CV.tex changes, and on demand
+# from the Actions tab ("Run workflow").
+on:
+  push:
+    paths:
+      - 'cv/**.tex'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: CV.tex
+          working_directory: cv
+
+      - name: Publish cv.pdf at the site root
+        run: |
+          cp cv/CV.pdf cv.pdf
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add cv.pdf
+          git commit -m "Update cv.pdf [skip ci]" || echo "No changes to commit"
+          git push
