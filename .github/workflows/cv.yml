@@ -1,5 +1,4 @@
 name: Build CV
-
 # Rebuilds cv.pdf whenever cv/CV.tex changes, and on demand
 # from the Actions tab ("Run workflow").
 on:
