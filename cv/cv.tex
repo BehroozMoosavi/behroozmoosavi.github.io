@@ -1,0 +1,507 @@
+\documentclass[11pt,letterpaper]{article}
+
+
+\usepackage{iftex}
+\usepackage[T1]{fontenc}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+\fi
+\usepackage{newtxtext,newtxmath}
+\usepackage[expansion=false]{microtype}
+
+%----------------------------------------------------------------- layout
+\usepackage[letterpaper,margin=1in]{geometry}
+\let\Bbbk\relax            % guards the newtxmath/amssymb clash
+\usepackage{amsmath,amssymb}
+\usepackage{mathrsfs}
+% rsfs ships only at 5, 7 and 10pt; at 11pt the scriptscript size is 5.48pt,
+% which triggers a "size substitutions with differences" warning. Declaring
+% size ranges maps it to rsfs5 silently.
+\DeclareFontFamily{U}{rsfs}{\skewchar\font127 }
+\DeclareFontShape{U}{rsfs}{m}{n}{%
+  <-6.5> rsfs5
+  <6.5-8> rsfs7
+  <8-> rsfs10
+}{}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{needspace}
+\usepackage{hyperref}
+\usepackage{xurl}      % lets long URLs break anywhere
+
+%------------------------------------------------------------------ colors
+\definecolor{linknavy}{RGB}{0,45,100}
+\definecolor{rulegray}{RGB}{90,90,90}
+
+\hypersetup{
+    colorlinks = true,
+    linkcolor  = linknavy,
+    urlcolor   = linknavy,
+    citecolor  = linknavy,
+    pdftitle   = {Curriculum Vitae -- Behrooz Moosavi Ramezanzadeh},
+    pdfauthor  = {Behrooz Moosavi Ramezanzadeh},
+    pdfsubject = {Curriculum Vitae}
+}
+\urlstyle{same}
+
+%--------------------------------------------------------- running footer
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\itshape Behrooz Moosavi Ramezanzadeh}
+\fancyfoot[R]{\footnotesize Page \thepage\ of \pageref*{LastPage}}
+
+\raggedbottom
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\emergencystretch=1em
+\widowpenalty=10000
+\clubpenalty=10000
+
+%-------------------------------------------------------- section headings
+\titleformat{\section}
+  {\large\scshape}{}{0em}{}
+  [\vspace{-0.18em}{\color{rulegray}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{1.10em}{0.45em}
+
+\titleformat{\subsection}
+  {\normalsize\bfseries}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{0.75em}{0.30em}
+
+%------------------------------------------------------------------ lists
+\renewcommand{\labelitemi}{\raisebox{0.20ex}{\scriptsize$\bullet$}}
+\renewcommand{\labelitemii}{\raisebox{0.20ex}{\scriptsize$\circ$}}
+
+\setlist[itemize]{leftmargin=1.35em,labelsep=0.55em,
+                  itemsep=0.25em,topsep=0.30em,parsep=0pt,partopsep=0pt}
+
+\newenvironment{cventries}
+  {\begin{itemize}[label={},leftmargin=0pt,itemsep=0.40em,topsep=0.30em,
+                   parsep=0pt,partopsep=0pt]}
+  {\end{itemize}}
+
+\newenvironment{cvbullets}
+  {\begin{itemize}[label=\raisebox{0.20ex}{\scriptsize$\bullet$},
+                   leftmargin=1.5em,itemsep=0.20em,topsep=0.22em,
+                   parsep=0pt,partopsep=0pt]}
+  {\end{itemize}}
+
+%--------------------------------------------------------------- columns
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+\newcommand{\cvline}[2]{%
+  \begin{tabularx}{\linewidth}{@{}L@{\hspace{1.5em}}r@{}}
+    #1 & #2
+  \end{tabularx}\par}
+
+\newcommand{\institution}[2]{\cvline{\textbf{\large #1}}{\normalsize #2}}
+
+% spacing: one macro per job, used everywhere in the body
+%   \fieldsep  between inline label/value pairs on a degree line
+%   \factsep   between consecutive facts inside a detail line
+%   \linksep   between the links in the header
+\newcommand{\fieldsep}{\hspace{1.2em}}
+\newcommand{\factsep}{\hspace{0.6em}}
+\newcommand{\linksep}{\hspace{1em}$\vert$\hspace{1em}}
+
+% \degentry{degree}{inline details (advisor, GPA)}{dates}
+\newcommand{\degentry}[3]{%
+  \item \cvline{\textit{#1}}{\textit{#3}}%
+  \if\relax\detokenize{#2}\relax\else
+    {\small #2\par}%
+  \fi}
+
+% Compact degree rows for entries whose details fit on one line.
+\newcommand{\degentrycompact}[3]{%
+  \item \cvline{\textit{#1}\fieldsep{\small #2}}{\textit{#3}}}
+
+\newcommand{\cventry}[3]{%
+  \item \cvline{\textbf{#1}}{\textit{#2}}%
+        \vspace{0.12em}\par{\small\sloppy #3}\par}
+
+\newcommand{\roleentry}[3]{%
+  \item \cvline{\textbf{#1}}{\textit{#2}}%
+        \vspace{0.12em}\par{\small\sloppy\textit{#3}}\par}
+
+\begin{document}
+
+%=========================================================================
+%  HEADER
+%=========================================================================
+% Last content review: October 14, 2026.
+\begin{center}
+  {\huge\bfseries Behrooz Moosavi Ramezanzadeh}\\[0.45em]
+  {\small Pittsburgh, PA, USA}\\[0.30em]
+  {\small
+   \href{mailto:behroozmoosavi@pitt.edu}{behroozmoosavi@pitt.edu}
+   \linksep
+   \href{https://behroozmoosavi.github.io}{Website}
+   \linksep
+   \href{https://scholar.google.com/citations?user=gUWL4fIAAAAJ&hl=en}
+        {Google Scholar}}
+\end{center}
+
+%=========================================================================
+%  RESEARCH INTERESTS
+%=========================================================================
+\section{Research Interests}
+
+\begin{itemize}
+  \item \textbf{Calculus of Variations:} $\mathscr{A}$-quasiconvexity, lower
+        semicontinuity, relaxation, regularity theory.
+  \item \textbf{Partial Differential Equations:} nonlinear elliptic equations,
+        viscosity solutions.
+\end{itemize}
+
+%=========================================================================
+%  EDUCATION
+%=========================================================================
+\section{Education}
+
+\institution{University of Pittsburgh}{Pittsburgh, PA, USA}
+
+\begin{itemize}[leftmargin=1.35em,labelsep=0.55em,itemsep=0.50em,
+                topsep=0.30em,parsep=0pt,partopsep=0pt]
+
+  \degentrycompact{M.S.\ in Mathematics}
+           {\textbf{Advisor:}
+            \href{https://sites.pitt.edu/~manfredi/}{Juan J.\ Manfredi}\fieldsep
+            \textbf{GPA:} 3.96/4.00}
+           {Expected May 2027}
+        \vspace{0.10em}\par
+        {\small \textbf{Thesis:} \textit{Partial Differential Equations and
+         Stochastic Tug-of-War Games}.\\
+         \textbf{Committee:}
+         \href{https://sites.pitt.edu/~manfredi/}{Juan J.\ Manfredi},
+         \href{https://sites.pitt.edu/~armin/}{Armin Schikorra}, and
+         \href{https://sites.google.com/view/piotr-hajasz/home}{Piotr Haj\l asz}.\\
+         \textbf{Mathematics Ph.D.\ preliminary examinations:}\\
+         Analysis $60/60$; Linear Algebra $57.7/60$. Both passed on the
+         first attempt (pass mark: $40/60$).}
+
+  \degentry{Ph.D.\ student in Economics}
+           {\textbf{Advisors:}
+            \href{https://jordan-awan.com}{Jordan Awan},
+            \href{https://sites.pitt.edu/~arie/}{Arie Beresteanu}\fieldsep
+            \textbf{GPA:} 3.84/4.00}
+           {Aug.\ 2023 -- present}
+
+  \degentry{M.A.\ in Economics}{}{Aug.\ 2025}
+
+\end{itemize}
+
+\vspace{0.45em}
+
+
+\institution{Sharif University of Technology}{Tehran, Iran}
+
+\begin{itemize}[leftmargin=1.35em,labelsep=0.55em,itemsep=0.50em,
+                topsep=0.30em,parsep=0pt,partopsep=0pt]
+
+  \degentrycompact{B.S.\ in Mathematical Sciences}
+           {\textbf{GPA:} 3.78/4.00\fieldsep\textbf{Class rank:} 4/80}
+           {Aug.\ 2016 -- Jan.\ 2022}
+
+\end{itemize}
+\section{Research Experience}
+
+\begin{cventries}
+  \roleentry{Calculus of Variations --- Variable-Coefficient Differential Constraints}
+            {Spring 2026 -- present}
+            {Carnegie Mellon University.\factsep Research advisor:
+             \href{https://irenefonseca.weebly.com}{Irene Fonseca}.}
+\begin{cvbullets}
+  \item Study weak lower semicontinuity and frozen
+        $\mathscr{A}$-quasiconvexity for variational problems under
+        variable-coefficient linear differential constraints.
+  \item Proved sufficiency of frozen $\mathscr{A}$-quasiconvexity
+        under Lipschitz coefficients and pointwise constant rank,
+        allowing spatially varying rank, using localization,
+        blow-up, and frozen-operator projections.
+  \item Proved necessity of frozen $\mathscr{A}$-quasiconvexity
+        where the rank is locally constant along each lattice direction,
+        by adapting the Davoli--Fonseca moving-kernel construction, without
+        variable-coefficient pseudodifferential projections.
+\end{cvbullets}
+
+  \roleentry{M.S.\ Thesis --- Nonlinear Elliptic PDE and Stochastic Games}
+            {Fall 2025 -- present}
+            {University of Pittsburgh.\factsep Advisor:
+             \href{https://sites.pitt.edu/~manfredi/}{Juan J.\ Manfredi}.}
+  \begin{cvbullets}
+    \item Identified the regularized $p$-Laplacian with the ordinary
+          $p$-Laplacian of an affine lift one dimension higher; explicitly
+          computed the projected noise kernel and tilted extremal terms
+          of the induced scheme.
+    \item Established existence, uniqueness, and Borel measurability for
+          the projected dynamic programming principle with strip boundary
+          data, using monotone iteration and a comparison principle
+          adapted to the tilted terms.
+    \item Identified the unique solution with the value of an explicit
+          projected tug-of-war game on an augmented state space, using
+          super/submartingale arguments and measurable almost-optimal
+          strategies.
+    \item Proved convergence to the viscosity solution as $\varepsilon\to 0$
+          for $p\ge 2$ and a pointwise asymptotic mean value characterization
+          for $C^2$ solutions throughout $1<p<\infty$; constructed a
+          counterexample at the formal endpoint $p=\infty$.
+  \end{cvbullets}
+\end{cventries}
+
+\newpage
+
+\section{Publications and Preprints}
+
+\subsection*{Mathematics}
+
+\begin{cventries}
+
+  \cventry{A Projected Tug-of-War Game for the Regularized $p$-Laplacian}
+          {2026}
+          {\textit{Journal of Elliptic and Parabolic Equations}.\factsep
+           [\href{https://doi.org/10.1007/s41808-026-00508-x}{DOI}]\factsep
+           [\href{https://arxiv.org/abs/2605.01218}{arXiv:2605.01218}]}
+
+  \cventry{Extended Set Difference: An Inverse Operation of
+           Minkowski Summation}
+          {2025}
+          {With \href{https://sites.pitt.edu/~arie/}{Arie Beresteanu}.\factsep
+           Accepted, forthcoming in \textit{Journal of Convex Analysis}.\factsep
+           [\href{https://arxiv.org/abs/2412.19779}{arXiv:2412.19779}]}
+
+  \cventry{An Asymptotic Mean Value Characterization for the
+           Regularized $p$-Laplacian}
+          {2026}
+          {Preprint.\factsep
+           [\href{https://arxiv.org/abs/2607.02910}{arXiv:2607.02910}]}
+
+  \cventry{Optimal Control of an Epidemic with Intervention Design}
+          {2025}
+          {Preprint.\factsep
+           [\href{https://arxiv.org/abs/2503.22928}{arXiv:2503.22928}]}
+
+
+\end{cventries}
+
+\subsection*{Econometrics and Statistics}
+
+\begin{cventries}
+
+  \cventry{Partial Identification with Auxiliary Moment Restrictions}
+          {2026}
+          {With \href{https://sites.pitt.edu/~arie/}{Arie Beresteanu}.\factsep
+           Preprint.\factsep
+           [\href{https://arxiv.org/abs/2607.21807}{arXiv:2607.21807}]}
+
+  \cventry{Public Good Provision under Locally Private Signals}
+          {2026}
+          {With \href{https://jordan-awan.com}{Jordan Awan}.\factsep
+           Preprint.\factsep
+           [\href{https://arxiv.org/abs/2606.24013}{arXiv:2606.24013}]}
+
+  \cventry{Bounds for Restricted Selections of Random Sets}
+          {2025}
+          {With \href{https://sites.pitt.edu/~arie/}{Arie Beresteanu}.\factsep
+           Preprint.\factsep
+           [\href{https://arxiv.org/abs/2512.04539}{arXiv:2512.04539}]}
+
+\end{cventries}
+
+
+%=========================================================================
+%  HONORS AND AWARDS
+%=========================================================================
+\section{Honors and Awards}
+
+\begin{cventries}
+  \cventry{Gold Medal, Iranian National Mathematical Olympiad}
+          {2014}
+          {National competition, Iran.}
+
+  \cventry{Distinguished Student, Sharif University of Technology}
+          {2021}
+          {Ranked 4th in a graduating class of 80, Department of
+           Mathematical Sciences.}
+
+  \cventry{Iranian National University Entrance Examination}
+          {2016}
+          {Ranked 48th among approximately 650{,}000 participants in the
+           Mathematics and Physics track.}
+
+\end{cventries}
+
+%=========================================================================
+%  TALKS, CONFERENCES, AND SUMMER SCHOOLS
+%=========================================================================
+
+\section{Talks, Conferences, and Summer Schools}
+
+\begin{cventries}
+
+  \cventry{Working Group on the De Giorgi Conjecture}
+          {Fall 2026}
+          {Participant, Center for Nonlinear Analysis, Carnegie Mellon University.\factsep
+           Organizer: Robin Neumayer.}
+
+  \cventry{Frontiers of Mathematical and Computational Aspects of Materials Science}
+          {October 2026}
+          {Conference participant, Carnegie Mellon University.}
+
+  \cventry{Contributed talk, CFE--CMStatistics 2026}
+          {December 2026 (scheduled)}
+          {HTW Berlin, Germany.\factsep
+           \textit{Asymptotically Optimal Test Statistics for Simulation-Based Finite-Sample Inference}.}
+
+  \cventry{Contributed talks, Midwest Econometrics Group Annual Meeting}
+          {October 2025, October 2026}
+          {University of Cincinnati (2026).\factsep
+           [\href{https://drive.google.com/file/d/1lXIoT-c5Hz3ZJDnUKVEX-YLR4BccyTDX/view?usp=sharing}{Slides 2026}]
+           \quad
+           University of Illinois Urbana--Champaign (2025).\factsep
+           [\href{https://drive.google.com/file/d/1og-tSwhGiPRPObc-KQeTVsh2-W0WCWYE/view?usp=sharing}{Slides 2025}]}
+
+  \cventry{Topics at the Interface of Partial Differential Equations and Probability}
+          {June 2026}
+          {Summer school participant, Department of Mathematical Sciences,
+           Carnegie Mellon University.}
+
+\end{cventries}
+
+\newpage
+\section{Teaching and Research Appointments}
+
+\begin{cventries}
+
+  \cventry{University of Pittsburgh}{2022 -- 2026}
+          {\textit{Teaching Assistant:}
+           Graduate Stochastic Processes (Industrial Engineering, Fall 2022);
+           Probability \& Statistics I (Industrial Engineering, Summer 2023);
+           Intermediate Microeconomics (Economics, Fall 2024);
+           Applied Econometrics I and II (Economics, Spring and Fall 2025);
+           Introduction to Microeconomic Theory (Economics, Spring 2026).\\[0.35em]
+           \textit{Graduate Research Assistant:}
+           Department of Industrial Engineering (Fall 2022 -- Spring 2023) ---
+           implemented first-order splitting methods (projected gradient, ADMM)
+           and numerical routines for constrained optimization in Julia and Python.}
+
+  \cventry{Sharif University of Technology}{2017 -- 2022}
+          {\textit{Instructor:} Introduction to Linear Algebra for
+           Engineers (Spring 2019) --- sole responsibility for lectures,
+           problem sets, and assessment.\\
+           \textit{Teaching Assistant:} Abstract Algebra I (Spring 2020);
+           Topology I (Spring 2021); Elementary Measure Theory
+           (Spring 2022).\\[0.35em]
+           \textit{Volunteer Tutor:} Yarigaran Center, tutoring child
+           laborers (2017--2018).}
+
+\end{cventries}
+
+%=========================================================================
+%  EXPOSITORY LECTURE NOTES
+%=========================================================================
+\section{Expository Lecture Notes}
+
+\begin{cventries}
+
+  \cventry{Causal Inference}{2026}
+          {Comprehensive Ph.D.-level lecture notes.\factsep
+           [\href{https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/Causal_Inference}{GitHub}]}
+
+  \cventry{Topology}{2021}
+          {Lecture series written as a teaching assistant.\factsep
+           [\href{https://github.com/BehroozMoosavi/Lecture-Notes/blob/main/Topology/Topology.pdf}{GitHub}]}
+
+  \cventry{Linear Algebra}{2019}
+          {Full lecture series written as course instructor.\factsep
+           [\href{https://github.com/BehroozMoosavi/Lecture-Notes}{GitHub}]}
+
+  \cventry{An Advanced Introduction to Mathematical Logic and Set Theory}
+          {2019}
+          {Expository notes on first-order logic and axiomatic set
+           theory.\factsep
+           [\href{https://github.com/BehroozMoosavi/Lecture-Notes}{GitHub}]}
+
+\end{cventries}
+
+%=========================================================================
+%  SELECTED ADVANCED COURSEWORK
+%=========================================================================
+\section{Selected Advanced Coursework}
+
+{\small
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\linewidth}{@{}L L L@{}}
+\textbf{Carnegie Mellon Univ.$^{\dagger}$}
+  & \textbf{Univ.\ of Pittsburgh}
+  & \textbf{Sharif Univ.\ of Technology} \\
+\addlinespace[0.5mm]
+\midrule
+\addlinespace[0.5mm]
+% Each column grows naturally. The guide occupies the space below the
+% CMU courses without a fixed-height multirow cell or extra gaps elsewhere.
+\begin{minipage}[t]{\linewidth}
+  \begin{tabular}[t]{@{}l@{}}
+    Calculus of Variations \\
+    Functional Analysis \\
+    Measure and Integration \\
+    Advanced Optimal Transport \\
+    Statistical Optimal Transport I \\
+    Statistical Optimal Transport II
+  \end{tabular}\par
+  \vspace{4pt}
+  \begin{tcolorbox}[nobeforeafter,
+                    width=\linewidth,boxrule=0.4pt,arc=1.5pt,
+                    colback=white,colframe=black!45,boxsep=0pt,
+                    left=5pt,right=5pt,top=4pt,bottom=4pt]
+    \footnotesize\raggedright
+    $^{\dagger}$ PCHE cross-registration.\\[1pt]
+    $^{\ddagger}$ Enrolled for Spring 2027.
+  \end{tcolorbox}
+\end{minipage}
+  & \begin{tabular}[t]{@{}l@{}}
+      PDE I \\
+      PDE II$^{\ddagger}$ \\
+      Analysis II \\
+      Analysis III \\
+      Analysis IV$^{\ddagger}$ \\
+      Differential Geometry I \\
+      Differential Geometry II$^{\ddagger}$ \\
+      Mathematics of Finance I, II
+    \end{tabular}
+  & \begin{tabular}[t]{@{}l@{}}
+      Real Analysis I \\
+      Real Analysis II \\
+      Complex Analysis \\
+      Topology \\
+      Abstract Algebra I \\
+      Dynamical Systems \\
+      Numerical Analysis \\
+      Linear Algebra
+    \end{tabular} \\
+\end{tabularx}\par
+}
+
+%=========================================================================
+%  TECHNICAL SKILLS AND LANGUAGES
+%=========================================================================
+\section{Technical Skills and Languages}
+
+\begin{itemize}
+  \item \textbf{Scientific computing:}
+        MATLAB, Python, Julia, R, C\texttt{++}.
+  \item \textbf{Mathematical software and typesetting:} Lean 4, \LaTeX.
+  \item \textbf{Software:}
+        Author of
+        \href{https://CRAN.R-project.org/package=LangevinFlow}
+             {\texttt{LangevinFlow}}, an R package with a C\texttt{++} backend
+        published on CRAN.
+  \item \textbf{Languages:} Persian (native), English (fluent).
+\end{itemize}
+
+\end{document}
