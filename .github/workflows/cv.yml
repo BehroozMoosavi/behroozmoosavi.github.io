@@ -9,13 +9,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write   # commit cv.pdf back to the repository
+  pages: write      # ask GitHub Pages to republish the site
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Compile CV
         uses: xu-cheng/latex-action@v3
@@ -29,5 +30,12 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add cv.pdf
-          git commit -m "Update cv.pdf [skip ci]" || echo "No changes to commit"
+          git commit -m "Update cv.pdf" || echo "No changes to commit"
           git push
+
+      # Commits pushed by this workflow do not always trigger a Pages
+      # deployment, so request one explicitly.
+      - name: Republish the site
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
+        env:
+          GH_TOKEN: ${{ github.token }}
