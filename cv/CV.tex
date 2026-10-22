@@ -68,7 +68,7 @@
 \titleformat{\section}
   {\large\scshape}{}{0em}{}
   [\vspace{-0.18em}{\color{rulegray}\titlerule[0.6pt]}]
-\titlespacing*{\section}{0pt}{1.10em}{0.45em}
+\titlespacing*{\section}{0pt}{0.95em}{0.40em}
 
 \titleformat{\subsection}
   {\normalsize\bfseries}{}{0em}{}
@@ -88,7 +88,7 @@
 
 \newenvironment{cvbullets}
   {\begin{itemize}[label=\raisebox{0.20ex}{\scriptsize$\bullet$},
-                   leftmargin=1.5em,itemsep=0.20em,topsep=0.22em,
+                   leftmargin=1.5em,itemsep=0.12em,topsep=0.18em,
                    parsep=0pt,partopsep=0pt]}
   {\end{itemize}}
 
@@ -129,12 +129,14 @@
   \item \cvline{\textbf{#1}}{\textit{#2}}%
         \vspace{0.12em}\par{\small\sloppy\textit{#3}}\par}
 
+\newcommand{\A}{\mathscr{A}}
+
 \begin{document}
 
 %=========================================================================
 %  HEADER
 %=========================================================================
-% Last content review: October 14, 2026.
+% Last content review: October 15, 2026.
 \begin{center}
   {\huge\bfseries Behrooz Moosavi Ramezanzadeh}\\[0.45em]
   {\small Pittsburgh, PA, USA}\\[0.30em]
@@ -152,12 +154,9 @@
 %=========================================================================
 \section{Research Interests}
 
-\begin{itemize}
-  \item \textbf{Calculus of Variations:} $\mathscr{A}$-quasiconvexity, lower
-        semicontinuity, relaxation, regularity theory.
-  \item \textbf{Partial Differential Equations:} nonlinear elliptic equations,
-        viscosity solutions.
-\end{itemize}
+\begin{itemize}  \item \textbf{Calculus of Variations:} $\mathscr{A}$-quasiconvexity, lower        semicontinuity, relaxation, regularity theory.  
+\item \textbf{Partial Differential Equations:} nonlinear elliptic equations, viscosity solutions.
+\end{itemize} 
 
 %=========================================================================
 %  EDUCATION
@@ -166,13 +165,13 @@
 
 \institution{University of Pittsburgh}{Pittsburgh, PA, USA}
 
-\begin{itemize}[leftmargin=1.35em,labelsep=0.55em,itemsep=0.50em,
+\begin{itemize}[leftmargin=1.35em,labelsep=0.55em,itemsep=0.40em,
                 topsep=0.30em,parsep=0pt,partopsep=0pt]
 
   \degentrycompact{M.S.\ in Mathematics}
            {\textbf{Advisor:}
             \href{https://sites.pitt.edu/~manfredi/}{Juan J.\ Manfredi}\fieldsep
-            \textbf{GPA:} 3.96/4.00}
+            \textbf{Math GPA:} 3.96/4.00}
            {Expected May 2027}
         \vspace{0.10em}\par
         {\small \textbf{Thesis:} \textit{Partial Differential Equations and
@@ -181,13 +180,13 @@
          \href{https://sites.pitt.edu/~manfredi/}{Juan J.\ Manfredi},
          \href{https://sites.pitt.edu/~armin/}{Armin Schikorra}, and
          \href{https://sites.google.com/view/piotr-hajasz/home}{Piotr Haj\l asz}.\\
-         \textbf{Mathematics Ph.D.\ preliminary examinations:}\\
-         Analysis $60/60$; Linear Algebra $57.7/60$. Both passed on the
-         first attempt (pass mark: $40/60$).}
+         \textbf{Mathematics Ph.D.\ preliminary examinations:} \\Analysis $60/60$;
+         Linear Algebra $57.7/60$; both passed on the first attempt (pass mark
+         $40/60$).}
 
   \degentry{Ph.D.\ student in Economics}
            {\textbf{Advisors:}
-            \href{https://jordan-awan.com}{Jordan Awan},
+            \href{https://jordan-awan.com}{Jordan Awan} and
             \href{https://sites.pitt.edu/~arie/}{Arie Beresteanu}\fieldsep
             \textbf{GPA:} 3.84/4.00}
            {Aug.\ 2023 -- present}
@@ -196,17 +195,17 @@
 
 \end{itemize}
 
-\vspace{0.45em}
-
+\vspace{0.30em}
 
 \institution{Sharif University of Technology}{Tehran, Iran}
 
-\begin{itemize}[leftmargin=1.35em,labelsep=0.55em,itemsep=0.50em,
+\begin{itemize}[leftmargin=1.35em,labelsep=0.55em,itemsep=0.40em,
                 topsep=0.30em,parsep=0pt,partopsep=0pt]
 
-  \degentrycompact{B.S.\ in Mathematical Sciences}
-           {\textbf{GPA:} 3.78/4.00\fieldsep\textbf{Class rank:} 4/80}
-           {Aug.\ 2016 -- Jan.\ 2022}
+  \degentry{B.S.\ in Mathematical Sciences}
+           {\textbf{GPA:} 3.68/4.00\fieldsep\textbf{Class rank:} 4/80\fieldsep
+            Degree conferred January 2022}
+           {Aug.\ 2016 -- July 2021}
 
 \end{itemize}
 \section{Research Experience}
@@ -217,17 +216,14 @@
             {Carnegie Mellon University.\factsep Research advisor:
              \href{https://irenefonseca.weebly.com}{Irene Fonseca}.}
 \begin{cvbullets}
-  \item Study weak lower semicontinuity and frozen
-        $\mathscr{A}$-quasiconvexity for variational problems under
-        variable-coefficient linear differential constraints.
-  \item Proved sufficiency of frozen $\mathscr{A}$-quasiconvexity
-        under Lipschitz coefficients and pointwise constant rank,
-        allowing spatially varying rank, using localization,
-        blow-up, and frozen-operator projections.
-  \item Proved necessity of frozen $\mathscr{A}$-quasiconvexity
-        where the rank is locally constant along each lattice direction,
-        by adapting the Davoli--Fonseca moving-kernel construction, without
-        variable-coefficient pseudodifferential projections.
+  \item Study weak lower semicontinuity under variable-coefficient linear PDE constraints
+    and its characterization by frozen $\A$-quasiconvexity, beyond Santos's setting of
+    smooth coefficients with uniform constant rank.
+  \item Proved sufficiency for Lipschitz coefficients with pointwise constant rank, so
+    the rank may vary in space, using blow-up and frozen-operator projections.
+  \item Proved necessity wherever, for each lattice direction, the rank of the symbol is
+    locally constant, by adapting the Davoli--Fonseca moving-kernel construction instead
+    of pseudodifferential calculus.
 \end{cvbullets}
 
   \roleentry{M.S.\ Thesis --- Nonlinear Elliptic PDE and Stochastic Games}
@@ -236,9 +232,8 @@
              \href{https://sites.pitt.edu/~manfredi/}{Juan J.\ Manfredi}.}
   \begin{cvbullets}
     \item Identified the regularized $p$-Laplacian with the ordinary
-          $p$-Laplacian of an affine lift one dimension higher; explicitly
-          computed the projected noise kernel and tilted extremal terms
-          of the induced scheme.
+          $p$-Laplacian of an affine lift one dimension higher, and computed
+          the projected noise kernel and tilted extremal terms.
     \item Established existence, uniqueness, and Borel measurability for
           the projected dynamic programming principle with strip boundary
           data, using monotone iteration and a comparison principle
@@ -268,12 +263,12 @@
            [\href{https://doi.org/10.1007/s41808-026-00508-x}{DOI}]\factsep
            [\href{https://arxiv.org/abs/2605.01218}{arXiv:2605.01218}]}
 
-\cventry{An Asymptotic Mean Value Characterization for the
+  \cventry{An Asymptotic Mean Value Characterization for the
            Regularized $p$-Laplacian}
           {2026}
           {Preprint.\factsep
            [\href{https://arxiv.org/abs/2607.02910}{arXiv:2607.02910}]}
-           
+
   \cventry{Extended Set Difference: An Inverse Operation of
            Minkowski Summation}
           {2025}
@@ -281,18 +276,10 @@
            Accepted, forthcoming in \textit{Journal of Convex Analysis}.\factsep
            [\href{https://arxiv.org/abs/2412.19779}{arXiv:2412.19779}]}
 
-  
-
   \cventry{Optimal Control of an Epidemic with Intervention Design}
           {2025}
           {Preprint.\factsep
            [\href{https://arxiv.org/abs/2503.22928}{arXiv:2503.22928}]}
-
-  % Add once Prof. Fonseca confirms authorship (sole or joint):
-  % \cventry{$\mathscr{A}_x$-Quasiconvexity with Variable Coefficients:
-  %          Sufficiency and Necessity without Pseudodifferential Operators}
-  %         {2026}
-  %         {Manuscript in preparation.}
 
 \end{cventries}
 
@@ -393,7 +380,7 @@
            Applied Econometrics I and II (Economics, Spring and Fall 2025);
            Introduction to Microeconomic Theory (Economics, Spring 2026).\\[0.35em]
            \textit{Graduate Research Assistant:}
-           Department of Industrial Engineering (Fall 2022 -- Spring 2023) ---
+           Department of Industrial Engineering (Fall 2022 -- Summer 2023) ---
            implemented first-order splitting methods (projected gradient, ADMM)
            and numerical routines for constrained optimization in Julia and Python.}
 
@@ -426,13 +413,13 @@
 
   \cventry{Linear Algebra}{2019}
           {Full lecture series written as course instructor.\factsep
-           [\href{https://github.com/BehroozMoosavi/Lecture-Notes}{GitHub}]}
+           [\href{https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/LinearAlgebra1}{GitHub}]}
 
   \cventry{An Advanced Introduction to Mathematical Logic and Set Theory}
           {2019}
           {Expository notes on first-order logic and axiomatic set
            theory.\factsep
-           [\href{https://github.com/BehroozMoosavi/Lecture-Notes}{GitHub}]}
+           [\href{https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/Mathematical\%20and\%20symbolic\%20Logic}{GitHub}]}
 
 \end{cventries}
 
@@ -450,8 +437,6 @@
 \addlinespace[0.5mm]
 \midrule
 \addlinespace[0.5mm]
-% Each column grows naturally. The guide occupies the space below the
-% CMU courses without a fixed-height multirow cell or extra gaps elsewhere.
 \begin{minipage}[t]{\linewidth}
   \begin{tabular}[t]{@{}l@{}}
     Calculus of Variations \\
