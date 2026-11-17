@@ -1,6 +1,3 @@
-% =========================================================================
-%  FROZEN 22 October 2026 -- final CV, used for all applications. Do not edit.
-% =========================================================================
 \documentclass[11pt,letterpaper]{article}
 
 
@@ -13,7 +10,7 @@
 \usepackage[expansion=false]{microtype}
 
 %----------------------------------------------------------------- layout
-\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[letterpaper,margin=0.9in]{geometry}
 \let\Bbbk\relax            % guards the newtxmath/amssymb clash
 \usepackage{amsmath,amssymb}
 \usepackage{mathrsfs}
@@ -84,14 +81,14 @@
 \setlist[itemize]{leftmargin=1.35em,labelsep=0.55em,
                   itemsep=0.25em,topsep=0.30em,parsep=0pt,partopsep=0pt}
 
-\newenvironment{cventries}
-  {\begin{itemize}[label={},leftmargin=0pt,itemsep=0.40em,topsep=0.30em,
+\newenvironment{cventries}[1][0pt]
+  {\begin{itemize}[label={},leftmargin=#1,itemsep=0.65em,topsep=0.30em,
                    parsep=0pt,partopsep=0pt]}
   {\end{itemize}}
 
 \newenvironment{cvbullets}
   {\begin{itemize}[label=\raisebox{0.20ex}{\scriptsize$\bullet$},
-                   leftmargin=1.5em,itemsep=0.12em,topsep=0.18em,
+                   leftmargin=1.5em,itemsep=0.25em,topsep=0.18em,
                    parsep=0pt,partopsep=0pt]}
   {\end{itemize}}
 
@@ -115,7 +112,7 @@
 
 % \degentry{degree}{inline details (advisor, GPA)}{dates}
 \newcommand{\degentry}[3]{%
-  \item \cvline{\textit{#1}}{\textit{#3}}%
+  \item \cvline{\textit{#1}}{\textit{#3}}\nopagebreak
   \if\relax\detokenize{#2}\relax\else
     {\small #2\par}%
   \fi}
@@ -125,14 +122,14 @@
   \item \cvline{\textit{#1}\fieldsep{\small #2}}{\textit{#3}}}
 
 \newcommand{\cventry}[3]{%
-  \item \cvline{\textbf{#1}}{\textit{#2}}%
+  \item \cvline{\textbf{#1}}{\textit{#2}}\nopagebreak
         \vspace{0.12em}\par{\small\sloppy #3}\par}
 
 \newcommand{\roleentry}[3]{%
-  \item \cvline{\textbf{#1}}{\textit{#2}}%
-        \vspace{0.12em}\par{\small\sloppy\textit{#3}}\par}
+  \item \cvline{\textbf{#1}}{\textit{#2}}\nopagebreak
+        \vspace{0.12em}\par{\small\sloppy\textit{#3}}\par\nopagebreak}
 
-\newcommand{\A}{\mathscr{A}}
+\newcommand{\A}{\mathcal{A}}
 
 \begin{document}
 
@@ -157,8 +154,8 @@
 %=========================================================================
 \section{Research Interests}
 
-\begin{itemize}  \item \textbf{Calculus of Variations:} $\mathscr{A}$-quasiconvexity, lower        semicontinuity, relaxation, regularity theory.  
-\item \textbf{Partial Differential Equations:} nonlinear elliptic equations, viscosity solutions.
+\begin{itemize}  \item \textbf{Calculus of Variations:} $\A$-quasiconvexity, lower semicontinuity, relaxation, regularity theory.  
+\item \textbf{Partial Differential Equations:} nonlinear elliptic equations, viscosity solutions, tug-of-war games.
 \end{itemize} 
 
 %=========================================================================
@@ -183,7 +180,7 @@
          \href{https://sites.pitt.edu/~manfredi/}{Juan J.\ Manfredi},
          \href{https://sites.pitt.edu/~armin/}{Armin Schikorra}, and
          \href{https://sites.google.com/view/piotr-hajasz/home}{Piotr Haj\l asz}.\\
-         \textbf{Mathematics Ph.D.\ preliminary examinations:} \\Analysis $60/60$;
+         \textbf{Mathematics Ph.D.\ preliminary examinations:}\\ Analysis $60/60$;
          Linear Algebra $57.7/60$; both passed on the first attempt (pass mark
          $40/60$).}
 
@@ -192,9 +189,9 @@
             \href{https://jordan-awan.com}{Jordan Awan} and
             \href{https://sites.pitt.edu/~arie/}{Arie Beresteanu}\fieldsep
             \textbf{GPA:} 3.84/4.00}
-           {Aug.\ 2023 -- present}
+           {August 2023 -- present}
 
-  \degentry{M.A.\ in Economics}{}{Aug.\ 2025}
+  \degentry{M.A.\ in Economics}{}{August 2025}
 
 \end{itemize}
 
@@ -208,47 +205,47 @@
   \degentry{B.S.\ in Mathematical Sciences}
            {\textbf{GPA:} 3.68/4.00\fieldsep\textbf{Class rank:} 4/80\fieldsep
             Degree conferred January 2022}
-           {Aug.\ 2016 -- July 2021}
+           {August 2016 -- July 2021}
 
 \end{itemize}
 \section{Research Experience}
 
 \begin{cventries}
-  \roleentry{Calculus of Variations --- Variable-Coefficient Differential Constraints}
+  \roleentry{Lower Semicontinuity under Variable-Coefficient Differential Constraints}
             {Spring 2026 -- present}
             {Carnegie Mellon University.\factsep Research advisor:
              \href{https://irenefonseca.weebly.com}{Irene Fonseca}.}
 \begin{cvbullets}
-  \item Study weak lower semicontinuity under variable-coefficient linear constraints
-    and its characterization by frozen $\A$-quasiconvexity, beyond Santos's setting of
-    smooth coefficients with uniform constant rank.
-  \item Proved sufficiency for Lipschitz coefficients with pointwise constant rank, so
-    the rank may vary in space, using blow-up and frozen-operator projections.
-  \item Proved necessity wherever, for each lattice direction, the rank of the symbol is
-    locally constant, by adapting the Davoli--Fonseca moving-kernel construction instead
-    of pseudodifferential calculus.
+  \item Characterizing weak lower semicontinuity under linear differential
+    constraints with variable coefficients via frozen $\A$-quasiconvexity,
+    beyond setting of smooth coefficients with uniform constant rank.
+  \item Proved sufficiency for Lipschitz coefficients under a pointwise
+    constant-rank condition, allowing the rank to vary with $x$, via blow-up
+    and projections onto the kernels of the frozen operators.
+  \item Proved necessity at every point near which, for each lattice direction
+    $\xi$, the rank of the symbol $\mathbb{A}(x,\xi)$ is locally constant in $x$,
+    adapting the Davoli--Fonseca moving-kernel construction in place of
+    pseudodifferential calculus.
 \end{cvbullets}
 
-  \roleentry{M.S.\ Thesis --- Nonlinear Elliptic PDE and Stochastic Games}
+  \roleentry{Tug-of-War Games and the Regularized $p$-Laplacian}
             {Fall 2025 -- present}
-            {University of Pittsburgh.\factsep Advisor:
+            {M.S.\ thesis research, University of Pittsburgh.\factsep Advisor:
              \href{https://sites.pitt.edu/~manfredi/}{Juan J.\ Manfredi}.}
   \begin{cvbullets}
-    \item Identified the regularized $p$-Laplacian with the ordinary
-          $p$-Laplacian of an affine lift one dimension higher, and computed
-          the projected noise kernel and tilted extremal terms.
-    \item Established existence, uniqueness, and Borel measurability for
-          the projected dynamic programming principle with strip boundary
-          data, using monotone iteration and a comparison principle
-          adapted to the tilted terms.
-    \item Identified the unique solution with the value of an explicit
-          projected tug-of-war game on an augmented state space, using
-          super/submartingale arguments and measurable almost-optimal
-          strategies.
-    \item Proved convergence to the viscosity solution as $\varepsilon\to 0$
-          for $p\ge 2$ and a pointwise asymptotic mean value characterization
-          for $C^2$ solutions throughout $1<p<\infty$; constructed a
-          counterexample at the formal endpoint $p=\infty$.
+    \item Observed that the regularized $p$-Laplacian of $u$ is the ordinary
+          $p$-Laplacian of the affine lift of $u(x)$ in one more dimension, and
+          computed the projected noise kernel and tilted extremal terms.
+    \item Proved existence, uniqueness, and Borel measurability for the
+          projected dynamic programming principle with boundary-strip data,
+          via monotone iteration and an adapted comparison principle.
+    \item Showed that the solution is the value of an explicit projected
+          tug-of-war game on an augmented state space, using super- and
+          submartingale arguments and measurable almost-optimal strategies.
+    \item Proved convergence to the viscosity solution as the step size
+          $\varepsilon\to 0$ for $p\ge 2$, and a pointwise asymptotic mean value
+          characterization of $C^2$ solutions for every $p\in(1,\infty)$, which a
+          counterexample shows fails at the formal endpoint $p=\infty$.
   \end{cvbullets}
 \end{cventries}
 
@@ -256,9 +253,9 @@
 
 \section{Publications and Preprints}
 
-\subsection*{Mathematics}
+\subsection*{Published and Accepted}
 
-\begin{cventries}
+\begin{cventries}[1.5em]
 
   \cventry{A Projected Tug-of-War Game for the Regularized $p$-Laplacian}
           {2026}
@@ -266,46 +263,51 @@
            [\href{https://doi.org/10.1007/s41808-026-00508-x}{DOI}]\factsep
            [\href{https://arxiv.org/abs/2605.01218}{arXiv:2605.01218}]}
 
-  \cventry{An Asymptotic Mean Value Characterization for the
-           Regularized $p$-Laplacian}
-          {2026}
-          {Preprint.\factsep
-           [\href{https://arxiv.org/abs/2607.02910}{arXiv:2607.02910}]}
-
-  \cventry{Extended Set Difference: An Inverse Operation of
-           Minkowski Summation}
-          {2025}
+  \cventry{Extended Set Difference: Inverse Operation of Minkowski Summation}
+          {To appear}
           {With \href{https://sites.pitt.edu/~arie/}{Arie Beresteanu}.\factsep
-           Accepted, forthcoming in \textit{Journal of Convex Analysis}.\factsep
+           \textit{Journal of Convex Analysis}.\factsep
            [\href{https://arxiv.org/abs/2412.19779}{arXiv:2412.19779}]}
-
-  \cventry{Optimal Control of an Epidemic with Intervention Design}
-          {2025}
-          {Preprint.\factsep
-           [\href{https://arxiv.org/abs/2503.22928}{arXiv:2503.22928}]}
 
 \end{cventries}
 
-\subsection*{Econometrics and Statistics}
+\subsection*{Preprints in Mathematics}
 
-\begin{cventries}
+\begin{cventries}[1.5em]
+
+  \cventry{A Formally Verified Convergence Theorem for the Tug-of-War Scheme of $p$-Laplacian}
+          {2026}
+          {With \href{https://sites.pitt.edu/~manfredi/}{Juan J.\ Manfredi}.\factsep
+           [\href{https://arxiv.org/abs/2611.20169}{arXiv:2611.20169}]}
+
+  \cventry{An Asymptotic Mean Value Characterization for the
+           Regularized $p$-Laplacian}
+          {2026}
+          {[\href{https://arxiv.org/abs/2607.02910}{arXiv:2607.02910}]}
+
+  \cventry{Optimal Control of an Epidemic with Intervention Design}
+          {2025}
+          {[\href{https://arxiv.org/abs/2503.22928}{arXiv:2503.22928}]}
+
+\end{cventries}
+
+\subsection*{Other Research: Econometrics and Statistics}
+
+\begin{cventries}[1.5em]
 
   \cventry{Partial Identification with Auxiliary Moment Restrictions}
           {2026}
           {With \href{https://sites.pitt.edu/~arie/}{Arie Beresteanu}.\factsep
-           Preprint.\factsep
            [\href{https://arxiv.org/abs/2607.21807}{arXiv:2607.21807}]}
 
   \cventry{Public Good Provision under Locally Private Signals}
           {2026}
           {With \href{https://jordan-awan.com}{Jordan Awan}.\factsep
-           Preprint.\factsep
            [\href{https://arxiv.org/abs/2606.24013}{arXiv:2606.24013}]}
 
   \cventry{Bounds for Restricted Selections of Random Sets}
           {2025}
           {With \href{https://sites.pitt.edu/~arie/}{Arie Beresteanu}.\factsep
-           Preprint.\factsep
            [\href{https://arxiv.org/abs/2512.04539}{arXiv:2512.04539}]}
 
 \end{cventries}
@@ -317,27 +319,39 @@
 \section{Honors and Awards}
 
 \begin{cventries}
+  \cventry{Iranian National University Entrance Examination}
+          {2016}
+          {Ranked 48th nationally in the Mathematics and Physics track.}
+
   \cventry{Gold Medal, Iranian National Mathematical Olympiad}
           {2014}
           {National competition, Iran.}
-
-  \cventry{Distinguished Student, Sharif University of Technology}
-          {2021}
-          {Ranked 4th in a graduating class of 80, Department of
-           Mathematical Sciences.}
-
-  \cventry{Iranian National University Entrance Examination}
-          {2016}
-          {Ranked 48th among approximately 650{,}000 participants in the
-           Mathematics and Physics track.}
-
 \end{cventries}
 
 %=========================================================================
 %  TALKS, CONFERENCES, AND SUMMER SCHOOLS
 %=========================================================================
 
-\section{Talks, Conferences, and Summer Schools}
+\section{Talks}
+
+\begin{cventries}
+
+  \cventry{Contributed talk, CFE--CMStatistics 2026}
+          {December 2026 (scheduled)}
+          {HTW Berlin, Germany.\factsep
+           \textit{Asymptotically Optimal Test Statistics for Simulation-Based Finite-Sample Inference}.}
+
+  \cventry{Contributed talks, Midwest Econometrics Group Annual Meeting}
+          {October 2026, October 2025}
+          {University of Cincinnati (2026).\factsep
+           [\href{https://drive.google.com/file/d/1lXIoT-c5Hz3ZJDnUKVEX-YLR4BccyTDX/view?usp=sharing}{Slides 2026}]
+           \quad
+           University of Illinois Urbana--Champaign (2025).\factsep
+           [\href{https://drive.google.com/file/d/1og-tSwhGiPRPObc-KQeTVsh2-W0WCWYE/view?usp=sharing}{Slides 2025}]}
+
+\end{cventries}
+
+\section{Conferences, Workshops, and Summer Schools}
 
 \begin{cventries}
 
@@ -349,19 +363,6 @@
   \cventry{Frontiers of Mathematical and Computational Aspects of Materials Science}
           {October 2026}
           {Conference participant, Carnegie Mellon University.}
-
-  \cventry{Contributed talk, CFE--CMStatistics 2026}
-          {December 2026 (scheduled)}
-          {HTW Berlin, Germany.\factsep
-           \textit{Asymptotically Optimal Test Statistics for Simulation-Based Finite-Sample Inference}.}
-
-  \cventry{Contributed talks, Midwest Econometrics Group Annual Meeting}
-          {October 2025, October 2026}
-          {University of Cincinnati (2026).\factsep
-           [\href{https://drive.google.com/file/d/1lXIoT-c5Hz3ZJDnUKVEX-YLR4BccyTDX/view?usp=sharing}{Slides 2026}]
-           \quad
-           University of Illinois Urbana--Champaign (2025).\factsep
-           [\href{https://drive.google.com/file/d/1og-tSwhGiPRPObc-KQeTVsh2-W0WCWYE/view?usp=sharing}{Slides 2025}]}
 
   \cventry{Topics at the Interface of Partial Differential Equations and Probability}
           {June 2026}
@@ -388,12 +389,11 @@
            and numerical routines for constrained optimization in Julia and Python.}
 
   \cventry{Sharif University of Technology}{2017 -- 2022}
-          {\textit{Instructor:} Introduction to Linear Algebra for
+          {\textit{Instructor} (as an undergraduate): Introduction to Linear Algebra for
            Engineers (Spring 2019) --- sole responsibility for lectures,
            problem sets, and assessment.\\
-           \textit{Teaching Assistant:} Abstract Algebra I (Spring 2020);
-           Topology I (Spring 2021); Elementary Measure Theory
-           (Spring 2022).\\[0.35em]
+           \textit{Teaching Assistant} (spring semesters): Elementary Measure
+           Theory, 2022; Topology I, 2021; Abstract Algebra I, 2020.\\[0.35em]
            \textit{Volunteer Tutor:} Yarigaran Center, tutoring child
            laborers (2017--2018).}
 
@@ -407,7 +407,7 @@
 \begin{cventries}
 
   \cventry{Causal Inference}{2026}
-          {Comprehensive Ph.D.-level lecture notes.\factsep
+          {Lecture notes for a Ph.D.-level course.\factsep
            [\href{https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/Causal_Inference}{GitHub}]}
 
   \cventry{Topology}{2021}
@@ -415,7 +415,7 @@
            [\href{https://github.com/BehroozMoosavi/Lecture-Notes/blob/main/Topology/Topology.pdf}{GitHub}]}
 
   \cventry{Linear Algebra}{2019}
-          {Full lecture series written as course instructor.\factsep
+          {Lecture notes for the course taught in Spring 2019.\factsep
            [\href{https://github.com/BehroozMoosavi/Lecture-Notes/tree/main/LinearAlgebra1}{GitHub}]}
 
   \cventry{An Advanced Introduction to Mathematical Logic and Set Theory}
@@ -466,8 +466,7 @@
       Analysis III \\
       Analysis IV$^{\ddagger}$ \\
       Differential Geometry I \\
-      Differential Geometry II$^{\ddagger}$ \\
-      Mathematics of Finance I, II
+      Differential Geometry II$^{\ddagger}$
     \end{tabular}
   & \begin{tabular}[t]{@{}l@{}}
       Real Analysis I \\
@@ -475,9 +474,7 @@
       Complex Analysis \\
       Topology \\
       Abstract Algebra I \\
-      Dynamical Systems \\
-      Numerical Analysis \\
-      Linear Algebra
+      Dynamical Systems
     \end{tabular} \\
 \end{tabularx}\par
 }
