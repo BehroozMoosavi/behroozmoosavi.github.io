@@ -5,17 +5,18 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Behrooz Moosavi | University of Pittsburgh</title>
-<meta name="description" content="Behrooz Moosavi, University of Pittsburgh. Research in the calculus of variations and nonlinear partial differential equations.">
+<title>Behrooz Moosavi | Mathematics | University of Pittsburgh</title>
+<meta name="description" content="Behrooz Moosavi at the University of Pittsburgh. Calculus of variations, nonlinear PDEs, and formalized mathematics in Lean. Research, papers, and CV.">
 <meta name="author" content="Behrooz Moosavi">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Behrooz Moosavi">
-<meta property="og:description" content="Calculus of variations and nonlinear partial differential equations. Papers, current research, and CV.">
+<meta property="og:title" content="Behrooz Moosavi — Mathematics">
+<meta property="og:description" content="Calculus of variations, nonlinear partial differential equations, and formalized mathematics. Research, papers, Lean proofs, and CV.">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://behroozmoosavi.github.io/">
 <link rel="icon" type="image/jpeg" href="100827158.jpeg" />
 <meta property="og:url" content="https://behroozmoosavi.github.io/">
 <meta property="og:image" content="https://behroozmoosavi.github.io/100827158.jpeg">
+<meta property="og:image:alt" content="Behrooz Moosavi">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
 {
@@ -26,7 +27,7 @@
   "email": "mailto:behroozmoosavi@pitt.edu",
   "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Pittsburgh" },
   "alumniOf": { "@type": "CollegeOrUniversity", "name": "Sharif University of Technology" },
-  "knowsAbout": ["Calculus of variations", "Nonlinear partial differential equations"],
+  "knowsAbout": ["Calculus of variations", "Nonlinear partial differential equations", "Viscosity solutions", "Formalized mathematics", "Lean 4"],
   "sameAs": [
     "https://scholar.google.com/citations?user=gUWL4fIAAAAJ",
     "https://github.com/BehroozMoosavi"
@@ -108,7 +109,7 @@
     border-right: 1px solid var(--rule);
     padding: 3rem 2rem 2rem;
   }
-  .side-inner { position: sticky; top: 3rem; }
+  .side-inner { position: sticky; top: 3rem; max-height: calc(100vh - 6rem); overflow-y: auto; }
 
   .portrait {
     display: block; width: 8.5rem; height: 8.5rem; object-fit: cover;
@@ -176,13 +177,8 @@
   .status { margin: 0 0 .45rem; font-size: .95rem; }
   .status em { font-style: italic; }
   .pub p.summary { margin: 0 0 .35rem; font-size: .98rem; }
-  .pub-links { font-family: var(--sans); font-size: .84rem; }
-  .pub-links a + a { margin-left: 1rem; }
-  .group-title {
-    margin: 1.6rem 0 .3rem; font-family: var(--sans); font-size: .9rem;
-    font-weight: 600; color: var(--slate);
-  }
-  .group-title:first-of-type { margin-top: 0; }
+  .pub-links { display: flex; flex-wrap: wrap; gap: .35rem 1rem; font-family: var(--sans); font-size: .84rem; }
+  .section-intro { color: var(--slate); font-size: .98rem; }
   .bib { font-family: var(--sans); font-size: .84rem; margin: 1.2rem 0 0; }
 
   /* Figure: a tug-of-war game with noise */
@@ -257,7 +253,7 @@
     .side { border-right: 0; border-bottom: 1px solid var(--rule); padding: 2rem 1.5rem 1.4rem; }
     .side-inner {
       position: static; display: grid; grid-template-columns: auto 1fr;
-      column-gap: 1.2rem; align-items: center;
+      column-gap: 1.2rem; align-items: center; max-height: none; overflow: visible;
     }
     .portrait { width: 5.5rem; height: 5.5rem; margin: 0; grid-row: span 2; }
     .role { margin: .3rem 0 0; }
@@ -282,7 +278,11 @@
 
   @media print {
     .side { background: none; border: 0; }
-    .side-inner { position: static; }
+    .layout { display: block; }
+    .side { padding: 0 0 1rem; }
+    .side-inner { position: static; max-height: none; overflow: visible; }
+    .portrait { width: 5rem; height: 5rem; }
+    main { padding: 0; }
     .toc, .skip { display: none; }
     .figure-pair { width: auto; }
     a { color: inherit; }
@@ -302,7 +302,7 @@
       <img class="portrait" src="100827158.jpeg" width="272" height="272"
            alt="Behrooz Moosavi">
       <h1 class="name">Behrooz Moosavi</h1>
-      <p class="role">Graduate student<br>
+      <p class="role">M.S. student in Mathematics<br>
         University of Pittsburgh</p>
 
       <ul class="links">
@@ -316,11 +316,13 @@
         <ul class="toc">
           <li><a href="#about">About</a></li>
           <li><a href="#research">Research</a></li>
-          <li><a href="#papers">Papers</a></li>
+          <li><a href="#papers">Mathematics papers</a></li>
+          <li><a href="#formalization">Lean formalization</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#talks">Talks and meetings</a></li>
           <li><a href="#teaching">Teaching</a></li>
           <li><a href="#notes">Lecture notes</a></li>
+          <li><a href="#other-papers">Other papers</a></li>
           <li><a href="#software">Software</a></li>
         </ul>
       </nav>
@@ -335,8 +337,8 @@
 
       <section id="about">
         <h2 class="visually-hidden">About</h2>
-        <p class="lede">I am a graduate student at the University of Pittsburgh, working in the
-          calculus of variations and nonlinear partial differential equations.</p>
+        <p class="lede">I work in the calculus of variations, nonlinear partial differential
+          equations, and formalized mathematics at the University of Pittsburgh.</p>
         <p>I am completing an M.S. in Mathematics with a thesis on stochastic tug-of-war games
           and the regularized <i>p</i>-Laplacian, advised by
           <a href="https://sites.pitt.edu/~manfredi/">Juan J. Manfredi</a>. I also work with
@@ -423,18 +425,34 @@
            Papers
            ======================================================== -->
       <section id="papers">
-        <h2>Papers</h2>
-
-        <p class="group-title">Mathematics</p>
+        <h2>Mathematics papers</h2>
         <ol class="pubs">
 
+          <li class="pub" id="paper-formal">
+            <span class="year">2026</span>
+            <div>
+              <h3><a href="https://arxiv.org/abs/2611.20169">A formally verified convergence theorem for the tug-of-war scheme of the normalized <i>p</i>-Laplacian</a></h3>
+              <p class="byline">With <a href="https://sites.pitt.edu/~manfredi/">Juan J. Manfredi</a></p>
+              <p class="status">Preprint</p>
+              <p class="summary">A Lean 4 formalization of existence, uniqueness, and uniform convergence for the tug-of-war scheme of the normalized <i>p</i>-Laplacian, for <span class="math">2 ≤ <i>p</i> &lt; ∞</span>.</p>
+              <details class="more"><summary>Paper details</summary>
+                <p>For bounded open domains satisfying an exterior sphere condition and fixed bounded continuous data, the discrete solutions converge uniformly on the closure to the unique viscosity solution. The development includes the scheme expansion, half-relaxed limits, boundary estimates, comparison, Aleksandrov’s theorem, and Jensen’s lemma. The contribution is a formalization of these established results in Lean 4 and Mathlib.</p>
+              </details>
+              <p class="pub-links">
+                <a href="https://arxiv.org/abs/2611.20169">arXiv</a>
+                <a href="https://arxiv.org/pdf/2611.20169">PDF</a>
+                <a href="https://behroozmoosavi.github.io/tugofwar_formalization/">Lean website</a>
+                <a href="https://github.com/BehroozMoosavi/tugofwar_formalization/tree/v1.3">Lean source (v1.3)</a>
+              </p>
+            </div>
+          </li>
           <li class="pub" id="paper-tow">
             <span class="year">2026</span>
             <div>
               <h3><a href="https://arxiv.org/abs/2605.01218">A projected tug-of-war game for the regularized <i>p</i>-Laplacian</a></h3>
               <p class="status">Published in <em>Journal of Elliptic and Parabolic Equations</em></p>
               <p class="summary">A stochastic-game interpretation of the regularized <i>p</i>-Laplace equation for <span class="math"><i>p</i> ≥ 2</span>, built on an affine lift that turns it into the ordinary <i>p</i>-Laplace equation one dimension higher.</p>
-              <details class="more"><summary>More</summary>
+              <details class="more"><summary>Paper details</summary>
                 <p>Projecting the higher-dimensional game back to the original domain gives a dynamic programming principle with strip boundary data. I prove existence, uniqueness and Borel measurability for it, identify its solution with the value of the projected game, and prove convergence to the viscosity solution as the step size tends to zero. The lift introduces artificial caps on the cylinder; the compactness estimates are arranged to stay away from them.</p>
               </details>
               <p class="pub-links">
@@ -450,7 +468,7 @@
               <h3><a href="https://arxiv.org/abs/2607.02910">An asymptotic mean value characterization for the regularized <i>p</i>-Laplacian</a></h3>
               <p class="status">Preprint</p>
               <p class="summary">For <span class="math"><i>C</i><sup>2</sup></span> functions, solving the regularized <i>p</i>-Laplace equation is equivalent to a pointwise asymptotic mean-value identity, throughout <span class="math">1 &lt; <i>p</i> &lt; ∞</span>.</p>
-              <details class="more"><summary>More</summary>
+              <details class="more"><summary>Paper details</summary>
                 <p>The identity combines tilted extrema with a weighted local average. Because the lifted gradient never vanishes, no separate treatment of critical points is needed, unlike the classical <i>p</i>-harmonic theory. An example built from Aronsson's function shows that the identity fails pointwise at the formal endpoint <span class="math"><i>p</i> = ∞</span>. Convergence of the associated game for <span class="math"><i>p</i> ≥ 2</span> is the subject of the companion paper.</p>
               </details>
               <p class="pub-links">
@@ -466,7 +484,7 @@
               <p class="byline">With <a href="https://sites.pitt.edu/~arie/">Arie Beresteanu</a></p>
               <p class="status">Accepted in <em>Journal of Convex Analysis</em></p>
               <p class="summary">Minkowski addition has no exact inverse in general. We define a difference of compact convex sets by minimizing the Hausdorff distance between <i>A</i> and <span class="math"><i>B</i> + <i>X</i></span>.</p>
-              <details class="more"><summary>More</summary>
+              <details class="more"><summary>Paper details</summary>
                 <p>We prove that a minimizer exists for every pair of nonempty compact convex sets. Minimizers need not be unique, so we study the whole collection: bounds on its size, stability under transformations and perturbations, and a linear-optimization method for computing it.</p>
               </details>
               <p class="pub-links">
@@ -482,7 +500,7 @@
               <h3><a href="https://arxiv.org/abs/2503.22928">Optimal control of an epidemic with intervention design</a></h3>
               <p class="status">Preprint</p>
               <p class="summary">Optimal vaccination in an SEIR model with a hard healthcare-capacity constraint, an infinite horizon, and a delay between decision and implementation.</p>
-              <details class="more"><summary>More</summary>
+              <details class="more"><summary>Paper details</summary>
                 <p>Moreau–Yosida regularization approximates the hard constraint by penalized problems, and Γ-convergence relates finite- and infinite-horizon solutions. Pontryagin conditions characterize the intervention strategies, including boundary arcs on which infections stay at the capacity limit, and numerical examples measure the cost of delay.</p>
               </details>
               <p class="pub-links">
@@ -493,62 +511,25 @@
           </li>
         </ol>
 
-        <p class="group-title">Econometrics and statistics</p>
-        <ol class="pubs">
-
-          <li class="pub" id="paper-pid">
-            <span class="year">2026</span>
-            <div>
-              <h3><a href="https://arxiv.org/abs/2607.21807">Partial identification with auxiliary moment restrictions</a></h3>
-              <p class="byline">With <a href="https://sites.pitt.edu/~arie/">Arie Beresteanu</a></p>
-              <p class="status">Preprint</p>
-              <p class="summary">How known population aggregates restrict the sharp identification region of the best linear predictor when outcomes are observed only as intervals.</p>
-              <details class="more"><summary>More</summary>
-                <p>The added information constrains the admissible completions of the data without changing the reported intervals. Some restrictions reduce the dimension of the region; others narrow it without reducing its dimension. The paper derives directional measures of identifying value and applies them to interval-valued wages in the Current Population Survey.</p>
-              </details>
-              <p class="pub-links">
-                <a href="https://arxiv.org/abs/2607.21807">arXiv</a>
-                <a href="https://arxiv.org/pdf/2607.21807">PDF</a>
-              </p>
-            </div>
-          </li>
-
-          <li class="pub" id="paper-pgp">
-            <span class="year">2026</span>
-            <div>
-              <h3><a href="https://arxiv.org/abs/2606.24013">Public good provision under locally private signals</a></h3>
-              <p class="byline">With <a href="https://jordan-awan.com/">Jordan Awan</a></p>
-              <p class="status">Preprint</p>
-              <p class="summary">Optimal public-good provision when preferences are observed only through a privacy channel that randomizes individual reports.</p>
-              <details class="more"><summary>More</summary>
-                <p>The optimal allocation is determined by an aggregate posterior score combining expected valuations and virtual values. The implementing transfers solve a Fredholm integral equation: completeness gives uniqueness when a solution exists, while existence needs a separate range condition. Comparisons between privacy channels depend on how their privacy levels are calibrated.</p>
-              </details>
-              <p class="pub-links">
-                <a href="https://arxiv.org/abs/2606.24013">arXiv</a>
-                <a href="https://arxiv.org/pdf/2606.24013">PDF</a>
-              </p>
-            </div>
-          </li>
-
-          <li class="pub" id="paper-rsel">
-            <span class="year">2025</span>
-            <div>
-              <h3><a href="https://arxiv.org/abs/2512.04539">Bounds for restricted selections of random sets</a></h3>
-              <p class="byline">With <a href="https://sites.pitt.edu/~arie/">Arie Beresteanu</a></p>
-              <p class="status">Preprint</p>
-              <p class="summary">Sharp bounds on the means, medians and event probabilities attainable by selections of a random interval that satisfy aggregate restrictions.</p>
-              <details class="more"><summary>More</summary>
-                <p>On a non-atomic probability space we characterize the restricted selection sets and derive the bounds by rearrangement and convex duality. For random compact convex sets in higher dimensions, an approximation by unions of random cubes reduces the problems to coordinate-wise interval problems.</p>
-              </details>
-              <p class="pub-links">
-                <a href="https://arxiv.org/abs/2512.04539">arXiv</a>
-                <a href="https://arxiv.org/pdf/2512.04539">PDF</a>
-              </p>
-            </div>
-          </li>
-        </ol>
-
         <p class="bib"><a href="publications.bib" download>Download BibTeX for all papers</a></p>
+      </section>
+
+      <!-- ========================================================
+           Lean formalization
+           ======================================================== -->
+      <section id="formalization">
+        <h2>Lean formalization</h2>
+        <h3>From the tug-of-war scheme to the normalized <i>p</i>-Laplacian</h3>
+        <p class="meta">Joint work with Juan J. Manfredi.</p>
+        <p>The <a href="https://behroozmoosavi.github.io/tugofwar_formalization/">companion website</a>
+          for our <a href="#paper-formal">convergence paper</a> pairs mathematical statements
+          with their Lean proofs and shows the dependencies between results. The development
+          starts from the dynamic programming principle and follows the analytic route to
+          convergence using Lean 4 and Mathlib.</p>
+        <p class="pub-links">
+          <a href="https://behroozmoosavi.github.io/tugofwar_formalization/">Browse the formalization</a>
+          <a href="https://github.com/BehroozMoosavi/tugofwar_formalization">Source repository</a>
+        </p>
       </section>
 
       <!-- ========================================================
@@ -631,39 +612,158 @@
       </section>
 
       <!-- ========================================================
+           Other papers
+           ======================================================== -->
+      <section id="other-papers">
+        <h2>Other papers</h2>
+        <p class="section-intro">Econometrics and statistics.</p>
+        <ol class="pubs">
+
+          <li class="pub" id="paper-pid">
+            <span class="year">2026</span>
+            <div>
+              <h3><a href="https://arxiv.org/abs/2607.21807">Partial identification with auxiliary moment restrictions</a></h3>
+              <p class="byline">With <a href="https://sites.pitt.edu/~arie/">Arie Beresteanu</a></p>
+              <p class="status">Preprint</p>
+              <p class="summary">How known population aggregates restrict the sharp identification region of the best linear predictor when outcomes are observed only as intervals.</p>
+              <details class="more"><summary>Paper details</summary>
+                <p>The added information constrains the admissible completions of the data without changing the reported intervals. Some restrictions reduce the dimension of the region; others narrow it without reducing its dimension. The paper derives directional measures of identifying value and applies them to interval-valued wages in the Current Population Survey.</p>
+              </details>
+              <p class="pub-links">
+                <a href="https://arxiv.org/abs/2607.21807">arXiv</a>
+                <a href="https://arxiv.org/pdf/2607.21807">PDF</a>
+              </p>
+            </div>
+          </li>
+
+          <li class="pub" id="paper-pgp">
+            <span class="year">2026</span>
+            <div>
+              <h3><a href="https://arxiv.org/abs/2606.24013">Public good provision under locally private signals</a></h3>
+              <p class="byline">With <a href="https://jordan-awan.com/">Jordan Awan</a></p>
+              <p class="status">Preprint</p>
+              <p class="summary">Optimal public-good provision when preferences are observed only through a privacy channel that randomizes individual reports.</p>
+              <details class="more"><summary>Paper details</summary>
+                <p>The optimal allocation is determined by an aggregate posterior score combining expected valuations and virtual values. The implementing transfers solve a Fredholm integral equation: completeness gives uniqueness when a solution exists, while existence needs a separate range condition. Comparisons between privacy channels depend on how their privacy levels are calibrated.</p>
+              </details>
+              <p class="pub-links">
+                <a href="https://arxiv.org/abs/2606.24013">arXiv</a>
+                <a href="https://arxiv.org/pdf/2606.24013">PDF</a>
+              </p>
+            </div>
+          </li>
+
+          <li class="pub" id="paper-rsel">
+            <span class="year">2025</span>
+            <div>
+              <h3><a href="https://arxiv.org/abs/2512.04539">Bounds for restricted selections of random sets</a></h3>
+              <p class="byline">With <a href="https://sites.pitt.edu/~arie/">Arie Beresteanu</a></p>
+              <p class="status">Preprint</p>
+              <p class="summary">Sharp bounds on the means, medians and event probabilities attainable by selections of a random interval that satisfy aggregate restrictions.</p>
+              <details class="more"><summary>Paper details</summary>
+                <p>On a non-atomic probability space we characterize the restricted selection sets and derive the bounds by rearrangement and convex duality. For random compact convex sets in higher dimensions, an approximation by unions of random cubes reduces the problems to coordinate-wise interval problems.</p>
+              </details>
+              <p class="pub-links">
+                <a href="https://arxiv.org/abs/2512.04539">arXiv</a>
+                <a href="https://arxiv.org/pdf/2512.04539">PDF</a>
+              </p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="bib"><a href="publications.bib" download>Download BibTeX for all papers</a></p>
+      </section>
+
+      <!-- ========================================================
            Software
            ======================================================== -->
       <section id="software">
         <h2>Software</h2>
-        <p><a href="https://CRAN.R-project.org/package=LangevinFlow">LangevinFlow</a>, an R package
-          with a C++ backend, available on CRAN. I also work in Python, Julia, MATLAB, Lean&nbsp;4
-          and LaTeX.</p>
+        <p><a href="https://CRAN.R-project.org/package=LangevinFlow">LangevinFlow</a> is an R package
+          for sampling probability distributions using the unadjusted and Metropolis-adjusted
+          Langevin algorithms. It has a C++ backend and is available on CRAN.</p>
+        <p>I also work in Python, Julia, MATLAB, Lean&nbsp;4 and LaTeX.</p>
       </section>
 
       <footer>
-        Behrooz Moosavi, University of Pittsburgh. Last updated October 2026.
+        Behrooz Moosavi, University of Pittsburgh. Last updated November 2026.
       </footer>
     </div>
   </main>
 </div>
 <script>
-  // Mark the section currently in view in the sidebar menu.
+  // Keep the navigation aligned with reading position and explicit anchor visits.
   (function () {
-    var links = document.querySelectorAll('.toc a[href^="#"]');
-    if (!('IntersectionObserver' in window) || !links.length) return;
-    var byId = {};
-    links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        links.forEach(function (a) { a.classList.remove('is-current'); a.removeAttribute('aria-current'); });
-        var a = byId[e.target.id];
-        if (a) { a.classList.add('is-current'); a.setAttribute('aria-current', 'location'); }
+    var items = Array.from(document.querySelectorAll('.toc a[href^="#"]'))
+      .map(function (link) {
+        return { link: link, section: document.getElementById(link.hash.slice(1)) };
+      }).filter(function (item) { return item.section; });
+    if (!items.length) return;
+    var pinned = null;
+    var queued = false;
+    var current = null;
+
+    function sectionFromHash() {
+      var target;
+      try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); }
+      catch (error) { return null; }
+      var section = target && target.closest('section');
+      return section && items.some(function (item) { return item.section === section; })
+        ? section.id : null;
+    }
+
+    function render() {
+      queued = false;
+      var id = pinned;
+      if (!id) {
+        id = items[0].section.id;
+        if (window.scrollY > 2) {
+          if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+            id = items[items.length - 1].section.id;
+          } else {
+            var readingLine = Math.min(180, window.innerHeight * 0.28);
+            items.forEach(function (item) {
+              if (item.section.getBoundingClientRect().top <= readingLine) id = item.section.id;
+            });
+          }
+        }
+      }
+      if (id === current) return;
+      current = id;
+      items.forEach(function (item) {
+        var active = item.section.id === id;
+        item.link.classList.toggle('is-current', active);
+        if (active) item.link.setAttribute('aria-current', 'location');
+        else item.link.removeAttribute('aria-current');
       });
-    }, { rootMargin: '-35% 0px -60% 0px' });
-    Object.keys(byId).forEach(function (id) {
-      var el = document.getElementById(id); if (el) observer.observe(el);
+    }
+
+    function schedule() {
+      if (!queued) { queued = true; window.requestAnimationFrame(render); }
+    }
+    function resumeReading() { pinned = null; schedule(); }
+
+    items.forEach(function (item) {
+      item.link.addEventListener('click', function (event) {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        pinned = item.section.id;
+        schedule();
+      });
     });
+    window.addEventListener('hashchange', function () { pinned = sectionFromHash(); schedule(); });
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', resumeReading);
+    window.addEventListener('wheel', resumeReading, { passive: true });
+    window.addEventListener('touchstart', resumeReading, { passive: true });
+    window.addEventListener('keydown', function (event) {
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) resumeReading();
+    });
+    window.addEventListener('pointerdown', function (event) {
+      if (!event.target.closest('nav')) resumeReading();
+    });
+    window.addEventListener('pageshow', schedule);
+    pinned = sectionFromHash();
+    schedule();
   })();
 </script>
 </body>

@@ -29,12 +29,17 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add cv.pdf
-          git commit -m "Update cv.pdf" || echo "No changes to commit"
-          git push
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update cv.pdf"
+            git push
+          fi
 
-      # Commits pushed by this workflow do not always trigger a Pages
-      # deployment, so request one explicitly.
+      # Workflow-generated commits need an explicit Pages rebuild.
+      # Working-branch CV builds should not republish the main site.
       - name: Republish the site
+        if: github.ref == 'refs/heads/main'
         run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
         env:
           GH_TOKEN: ${{ github.token }}

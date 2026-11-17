@@ -1,66 +1,62 @@
-# Behrooz Moosavi Ramezanzadeh - Academic Website
+# Behrooz Moosavi — Academic Website
 
-This package contains all the website files except the photograph, which you
-already have. The biography, paper explanations, publication records, current
-research, teaching, notes, and software text are unchanged from the clear academic
-website previously provided. Only the profile-photo layout has been added.
+Live site: [behroozmoosavi.github.io](https://behroozmoosavi.github.io/)
 
-## Add your photo
+A personal academic website focused on the calculus of variations and nonlinear
+partial differential equations. The page presents current research, eight papers
+(mathematics first, followed by econometrics and statistics), education, teaching,
+and related resources. The normalized p-Laplacian paper and its companion Lean
+formalization site are linked together in the mathematics papers section.
 
-Place your existing photograph in the SAME folder as index.html and name it:
+## Files
 
-    100827158.jpeg
+| Path | Purpose |
+| --- | --- |
+| `index.html` | Website content, embedded CSS, and a small navigation script |
+| `100827158.jpeg` | Profile photograph and browser icon |
+| `publications.bib` | BibTeX entries for the eight listed papers |
+| `cv/CV.tex` | LaTeX source for the CV |
+| `cv.pdf` | Generated CV served by the website |
+| `robots.txt`, `sitemap.xml` | Search-engine discovery |
+| `scripts/check_site.py` | Local website checks |
+| `.github/workflows/` | Website checks and CV build automation |
 
-The spelling, capitalization, and extension must match. A file ending in .jpg is
-not the same filename as one ending in .jpeg. If you prefer a different name,
-change the src="100827158.jpeg" attribute in index.html to your actual filename.
+The page loads Source Serif 4 from Google Fonts, with local fallback fonts. Paper
+PDFs, lecture notes, academic profiles, and the Lean project are linked to their
+external sources.
 
-The page shows the photo as a circle to the right of your biography on wider
-screens, and above the biography on smaller screens. The image is displayed with
-CSS only; the underlying photograph is not edited. To adjust the displayed crop,
-edit object-position in the .profile-photo CSS rule.
+## Update the website
 
-## Final folder contents
+Edit `index.html` directly. Update `publications.bib` whenever paper titles,
+authors, links, or publication details change, so the citation download agrees
+with the page. Review the corresponding `sitemap.xml` modification date when
+publishing updated content.
 
-    index.html          Complete academic website with embedded CSS
-    100827158.jpeg       Your existing photograph (add this yourself)
-    cv.pdf              Your CV, copied unchanged from the previous website
-    publications.bib    Citation entries for the seven listed papers
-    .nojekyll           Static-site configuration file (may be hidden in Finder)
-    README.md           These instructions
+When updating the CV, edit `cv/CV.tex`. The **Build CV** workflow compiles it and
+commits the generated `cv.pdf` at the repository root. A manual replacement of
+`cv.pdf` can be overwritten by the next source build, so keep the LaTeX source
+authoritative. Website-only edits do not require changing the CV.
 
-There are no additional CSS, JavaScript, font, or image dependencies. Paper PDFs
-and lecture notes remain linked to their external sources; they are not bundled.
-No application statements, transcripts, letters, or private correspondence are
-included.
+## Preview and check locally
 
-## Use the files
+From the repository root, run:
 
-1. Extract the ZIP and add 100827158.jpeg beside index.html.
-2. Open index.html in your browser to review the site locally.
-3. Back up your existing website, then copy the package contents and your photo
-   into the folder your GitHub Pages site already publishes. Replace index.html,
-   cv.pdf, and publications.bib when prompted. Upload the extracted files, not
-   the ZIP itself. Avoid an extra nested folder around the files.
-4. Keep any existing CNAME file if your site uses a custom domain. Keep your
-   existing GitHub Pages configuration if it is already working.
+```sh
+python3 scripts/check_site.py
+python3 -m http.server 8000
+```
 
-.nojekyll is included in the ZIP but may be hidden by your file browser.
-The README does not need to be uploaded for the website to work.
+Open [localhost:8000](http://localhost:8000/) to preview the page. Check both wide
+and narrow windows, navigation, expanded paper descriptions, and the CV and
+BibTeX downloads. Stop the preview server with `Ctrl+C`. The local checks do not
+replace reviewing linked papers or verifying external publication metadata.
 
-## Update the website later
+## Deployment and CV builds
 
-Edit index.html directly in a text editor. All styling is inside its <style>
-block. Each paper has a comment marking its entry. When changing publication
-metadata, update publications.bib as well. Replace cv.pdf to update your CV.
+GitHub Pages publishes the website from `main`. The repository's Actions tab
+shows the deployment and check results.
 
-No build tools or package installation are needed. Your page and its styling work
-without JavaScript. External profile, paper, and lecture-note links require an
-internet connection.
-
-## Review scope
-
-This revision adds a photo reference and responsive photo styling only. It does
-not rewrite, fact-check, or change your academic content or CV. The actual photo
-is not included, and its crop should be reviewed after you add it. Nothing has
-been published to your GitHub account.
+**Build CV** runs when a pushed branch changes LaTeX files under `cv/` and can also
+be started manually from Actions. It compiles and updates the PDF on that branch; only runs
+on `main` request a Pages rebuild. For an Overleaf or other working-branch update,
+review and merge the source changes into `main` to publish the revised CV.
